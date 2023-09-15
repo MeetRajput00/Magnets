@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="node.css">
-    <script src="app.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -54,22 +53,35 @@
         <div>
                 Appratus
                 <div class="magnetsContainer">
-                    <img width="80%" draggable="true" height="20%" class="items"  ondragstart="drag(event)" src="./images/bar.png" alt="">
+                    <img width="280px" draggable="true" height="20%" class="items" src="./images/bar.png" alt="">
                     <div>Bar magnet</div>
-                    <div draggable="true" class="items ironBar"  ondragstart="drag(event)" style="cursor: move;"></div>
+                    <div style="width: 280px; height: 100px;">
+                    <div draggable="true" class="items ironBar"  style="cursor: move;">
+                    </div>
+                    </div>
                     <div>Iron Bar(Unmagnetised)</div>
-                    <img width="80%" height="12%" draggable="true"  ondragstart="drag(event)" class="items" src="./images/steel.png" alt="">
+                    <div style="width: 280px; height: 100px;">
+                    <img width="280px" height="70px" draggable="true"  class="items" src="./images/steel.png" alt="">
+                    </div>
                     <div>Steel Rod (Unmagnetised)</div>
-                    <img width="50%" height="20%" draggable="true"  ondragstart="drag(event)" class="items" src="./images/8TEbeABzc-removebg-preview.png" alt="">
+                    <div style="width: 280px; height: 100px;">
+                    <img width="180px" height="80px" draggable="true"  class="items" src="./images/8TEbeABzc-removebg-preview.png" alt="">
+                    </div>
                     <div>Steel Clips</div>
                 </div>
         </div>
-        <div class="draggingArea">
+        <div class="Drag">
+        <div class="draggingText">
                 Step:1 Drag and Drop a magnetic material into the empty space shown
-                <div class="emptySpace" ondrop="drop(event)" ondragover="allowDrop(event)">
-
-                </div>
+                
         </div>
+        <div>
+            <div class="emptySpace">
+                    
+            </div>
+        </div>
+        </div>
+
 
 
 
@@ -77,18 +89,16 @@
 
 </body>
 <script>
-    function allowDrop(ev) {
-    ev.preventDefault();
-    }
-
-    function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    }
+    let items= document.querySelector(".ironBar");
+        items.addEventListener('dragstart' , (event)=>{
+            console.log(event);
+        })
+    let emptySpace= document.querySelector('.emptySpace');
+    emptySpace.addEventListener('dragover', (event)=>{
+        event.preventDefault();
+    })
+    emptySpace.addEventListener('drop', (event)=>{
+        emptySpace.prepend(items);
+    })
 </script>
 </html>
