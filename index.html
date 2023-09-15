@@ -69,7 +69,7 @@
                     <img width="280px" draggable="true" height="20%" class="items" src="./images/bar.png" alt="">
                     <div>Bar magnet</div>
                     <div style="width: 280px; height: 100px;">
-                    <div draggable="true" class="items ironBar"  style="cursor: move;">
+                    <div draggable="true" class="ironBar"  style="cursor: move;">
                     </div>
                     </div>
                     <div>Iron Bar(Unmagnetised)</div>
@@ -77,22 +77,28 @@
                     <img width="280px" height="70px" draggable="true"  class="items" src="./images/steel.png" alt="">
                     </div>
                     <div>Steel Rod (Unmagnetised)</div>
-                    <div style="width: 280px; height: 100px;">
-                    <img width="180px" height="80px" draggable="true"  class="items" src="./images/8TEbeABzc-removebg-preview.png" alt="">
+                    <div style="width: 280px; height: 100px;" class="clipDiv">
+                    <img width="180px" height="80px" draggable="true"  class="items" id="Clips" src="./images/8TEbeABzc-removebg-preview.png" alt="">
                     </div>
                     <div>Steel Clips</div>
                 </div>
         </div>
+
         <div class="Drag">
         <div class="draggingText">
                 Step:1 Drag and Drop a magnetic material into the empty space shown
                 
         </div>
-        <div>
             <div class="emptySpace">
                     
             </div>
-        </div>
+            <div class="directionDiv" style="display: none;">
+                <p>Click the correct observation.</p>
+                <input type="radio" name="Direction" id="sameDirection" onchange="directionWrongAnswer()">
+                <label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> <br>
+                <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()">
+                <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label>
+            </div>
         </div>
 
 
@@ -102,16 +108,133 @@
 
 </body>
 <script>
-    let items= document.querySelector(".ironBar");
-        items.addEventListener('dragstart' , (event)=>{
-            console.log(event);
-        })
+    let trash = false;
+    let trashForClips= false;
     let emptySpace= document.querySelector('.emptySpace');
+    let ironBar= document.querySelector(".ironBar");
+    let clips= document.querySelector("#Clips");
+    let items= document.querySelectorAll(".items");
+    let arrowedBar= document.createElement('img');
+    let clipDiv= document.querySelector(".clipDiv");
+     arrowedBar.src= "./images/arrowed.png";
+     var dragvalue;
+    
+
+   
+    ironBar.addEventListener('dragstart' , (event)=>{
+            console.log(event);
+            trash= true
+        })
+   
     emptySpace.addEventListener('dragover', (event)=>{
         event.preventDefault();
     })
     emptySpace.addEventListener('drop', (event)=>{
-        emptySpace.prepend(items);
+        if(trash)
+        {
+        emptySpace.appendChild(ironBar);
+        trash= false;
+        afterDrag();
+        }
     })
+
+
+    function afterDrag(){
+        let draggingText =document.querySelector('.draggingText');
+        document.querySelector('.directionDiv').style.display= "block";
+        console.log(draggingText);
+        draggingText.innerHTML="Step 2 <br>  Observe the directions of the arrows inside the unmagnetised magnetic material. These arrows represent the magnetic domains or ‘tiny magnets’.";  
+        emptySpace.removeChild(ironBar);
+        emptySpace.appendChild(arrowedBar);
+        }
+    
+        function directionRightAnswer(){
+            let directionDiv= document.querySelector('.directionDiv');
+            directionDiv.innerHTML="Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised."
+             document.querySelector('.draggingText').innerHTML="Step 3:<br>Drag some steel clips near the magnetic material.<br>Move the magnetic material close to the steel clips."
+
+
+             clips.addEventListener('dragstart' , (event)=>{
+                console.log(event);
+                trashForClips= true
+                })
+              emptySpace.addEventListener('dragover', (event)=>{
+                    event.preventDefault();
+                })
+                emptySpace.addEventListener('drop', (event)=>{
+                    if(trashForClips)
+                    {
+                    emptySpace.appendChild(clips);
+                    clips.style.position= "fixed"
+                    clips.style.right= "40px"
+                    trashForClips= false;
+                    name();
+                    }
+                })
+                
+               
+        }
+        function directionWrongAnswer() {
+            let directionDiv= document.querySelector('.directionDiv');
+            directionDiv.innerHTML='<p>Try again! Study the directions of the arrows shown</p> <input type="radio"; name="Direction" id="sameDirection" onchange="directionWrongAnswer()"><label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> <br> <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()"> <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label>';
+        }
+    
+
+        function name() {
+            arrowedBar.draggable= "false";
+            arrowedBar.style.position= "absolute";
+            arrowedBar.onmousedown= ()=>{
+                dragvalue= arrowedBar;
+                move();
+                console.log("preet");
+                
+            }
+            function move(params) {
+                document.onmousemove= (e)=>{
+                    var x= e.pageX;
+                    var y= e.pageY;
+                    var p= x + "px";
+                    var q= y + "px";
+                    dragvalue.style.left= p;
+                    dragvalue.style.top= q;
+            }
+            arrowedBar.onmouseup= (e)=>{
+                document.onmousemove= null;
+                afterMove();
+            }
+            }
+
+        }
+
+
+        function afterMove() {
+            let directionDiv= document.querySelector('.directionDiv');
+            directionDiv.innerHTML='<p>Click the correct observation.</p> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> <br> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label>';
+            console.log(directionDiv);
+        }
+        function attractionRightAnswer(){
+            let draggingText= document.querySelector(".draggingText");
+            let directionDiv= document.querySelector('.directionDiv');
+            directionDiv.innerHTML='<p>Good observation! The iron bar has not been magnetised so it cannot attract any steel clips.</p> ';
+
+            draggingText.innerHTML="Step 4: <br>Drag the bar magnet near the iron bar. <br>Stroke the bar magnet in the same direction and observe the direction of the ‘tiny magnets’ inside the magnetic material "
+
+            emptySpace.removeChild(clips);
+            clips.style.position= "static";
+            clips.draggable= "false";
+            clipDiv.appendChild(clips);
+
+
+         }
+
+            function attractionWrongAnswer(){
+                let directionDiv= document.querySelector('.directionDiv');
+            directionDiv.innerHTML='<p>Try again! The iron bar is unmagnetised. Will it attract the steel clips?</p> <input type="radio" name="Attraction" id="Attracted" onchange="attractionRightAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> <br> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionWrongAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label>';
+            }
+                
+
+
+
+        
 </script>
 </html>
