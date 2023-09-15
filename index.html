@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node.css">
+    <script src="app.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="">
+            <div class="home navDiv">
+                <img height="50px" src="./images/home-button.png" alt="">
+                  &nbsp; Back To The Start
+            </div>
+        </a>
+        <div class="audioInstructions navDiv">
+            Audio Instructions
+            <img height="50px"  src="./images/voice-message.png" alt="">
+            <button>
+                <img height="50px" src="./images/switch-on.png" alt="">
+            </button>
+        </div>
+        <div class=" backgroundInstructions navDiv ">
+            Background Music 
+            <img src="" alt="">
+            <button>
+                <img height="50px" src="./images/switch-on.png" alt="">
+            </button>
+        </div>
+    </nav>
+
+    <div class="albertAndIntro">
+        <img height="550px"src="./images/albert.png" alt="">
+        <div>
+            <div class="intro">
+                In this simulation, you will explore how a magnetic material can be made into a temporary magnet using Stroke method.
+            </div>
+            <div>
+                <button onclick="                    
+                let a = document.querySelector('.albertAndIntro');
+                let b=  document.querySelector('.magnetsAndDrag');
+                a.style.display= 'none';
+                b.style.display= 'flex';
+                ">
+                    Start
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="magnetsAndDrag" >
+        <div>
+                Appratus
+                <div class="magnetsContainer">
+                    <img width="80%" draggable="true" height="20%" class="items"  ondragstart="drag(event)" src="./images/bar.png" alt="">
+                    <div>Bar magnet</div>
+                    <div draggable="true" class="items ironBar"  ondragstart="drag(event)" style="cursor: move;"></div>
+                    <div>Iron Bar(Unmagnetised)</div>
+                    <img width="80%" height="12%" draggable="true"  ondragstart="drag(event)" class="items" src="./images/steel.png" alt="">
+                    <div>Steel Rod (Unmagnetised)</div>
+                    <img width="50%" height="20%" draggable="true"  ondragstart="drag(event)" class="items" src="./images/8TEbeABzc-removebg-preview.png" alt="">
+                    <div>Steel Clips</div>
+                </div>
+        </div>
+        <div class="draggingArea">
+                Step:1 Drag and Drop a magnetic material into the empty space shown
+                <div class="emptySpace" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+                </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+<script>
+    function allowDrop(ev) {
+    ev.preventDefault();
+    }
+
+    function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+    }
+</script>
+</html>
