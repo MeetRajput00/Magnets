@@ -58,7 +58,7 @@
         <div>
                 Appratus
                 <div class="magnetsContainer">
-                    <img width="350px" draggable="true" height="10%" class="items" src="./images/bar.png" alt="">
+                    <img width="350px" draggable="true" height="10%" class="items" src="./images/bar.png" id="magnetBar" alt="">
                     <div>Bar magnet</div>
                     <div style="width: 280px; height: 100px;">
                     <div draggable="true" class="ironBar"  style="cursor: move;">
@@ -78,7 +78,7 @@
 
         <div class="Drag">
         <div class="draggingText">
-                Step:1 Drag and Drop a magnetic material into the empty space shown
+                Step:1 <br> Drag and Drop a magnetic material into the empty space shown
                 
         </div>
             <div class="emptySpace">
@@ -107,15 +107,17 @@
     let clips= document.querySelector("#Clips");
     let items= document.querySelectorAll(".items");
     let arrowedBar= document.createElement('img');
+    arrowedBar.src= "./images/arrowed.png";
+
     let clipDiv= document.querySelector(".clipDiv");
+    let magnetBar= document.querySelector('#magnetBar');
     let a =false;
-     arrowedBar.src= "./images/arrowed.png";
-     var dragvalue;
+    var dragvalue;
+    var magnetDragValue;
     
 
    
     ironBar.addEventListener('dragstart' , (event)=>{
-            console.log(event);
             trash= true
         })
    
@@ -149,8 +151,8 @@
     function afterDrag(){
         let draggingText =document.querySelector('.draggingText');
         document.querySelector('.directionDiv').style.display= "block";
-        console.log(draggingText);
-        draggingText.innerHTML="Step 2 <br>  Observe the directions of the arrows inside the unmagnetised magnetic material. These arrows represent the magnetic domains or ‘tiny magnets’.";  
+        
+        draggingText.innerHTML="Step:2 <br>  Observe the directions of the arrows inside the unmagnetised magnetic material.<br> These arrows represent the magnetic domains or ‘tiny magnets’.";  
         emptySpace.removeChild(ironBar);
         emptySpace.appendChild(arrowedBar);
         }
@@ -162,7 +164,6 @@
 
 
              clips.addEventListener('dragstart' , (event)=>{
-                console.log(event);
                 trashForClips= true
                 })
               emptySpace.addEventListener('dragover', (event)=>{
@@ -175,7 +176,7 @@
                     clips.style.position= "fixed"
                     clips.style.right= "40px"
                     trashForClips= false;
-                    name();
+                    moveBar();
                     }
                 })
                 
@@ -187,13 +188,12 @@
         }
     
 
-        function name() {
-            arrowedBar.draggable= "false";
+        function moveBar() {
+            arrowedBar.draggable= false;
             arrowedBar.style.position= "absolute";
             arrowedBar.onmousedown= ()=>{
                 dragvalue= arrowedBar;
                 move();
-                console.log("preet");
                 
             }
             function move(params) {
@@ -217,18 +217,17 @@
         function afterMove() {
             let directionDiv= document.querySelector('.directionDiv');
             directionDiv.innerHTML='<p>Click the correct observation.</p> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> <br> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label>';
-            console.log(directionDiv);
         }
         function attractionRightAnswer(){
             let draggingText= document.querySelector(".draggingText");
             let directionDiv= document.querySelector('.directionDiv');
             directionDiv.innerHTML='<p>Good observation! The iron bar has not been magnetised so it cannot attract any steel clips.</p> ';
 
-            draggingText.innerHTML="Step 4: <br>Drag the bar magnet near the iron bar. <br>Stroke the bar magnet in the same direction and observe the direction of the ‘tiny magnets’ inside the magnetic material "
+            draggingText.innerHTML="Step 4: <br>Drag the bar magnet near the iron bar. <br>Stroke the bar magnet in the same direction and observe the direction of the <br>   ‘tiny magnets’ inside the magnetic material "
 
             emptySpace.removeChild(clips);
             clips.style.position= "static";
-            clips.draggable= "false";
+            clips.style.draggable= false;
             arrowedBar.onmousedown = null;
             clipDiv.appendChild(clips);
             emptySpace.removeChild(arrowedBar);;
@@ -241,19 +240,48 @@
             let arrowAnimation= document.createElement('img');
             arrowAnimation.src ='./images/arrows.png';
             arrowAnimation.id= "arrownimation";
+            arrowAnimation.draggable= false;
             
             emptySpace.appendChild(divToStoreAnimation);
             divToStoreAnimation.appendChild(arrowAnimation)
-            divToStoreAnimation.appendChild(arrowedBar)   
-         
-
+            divToStoreAnimation.appendChild(arrowedBar)
+            clips.draggable= false; 
+            moveMagnet();
          }
 
             function attractionWrongAnswer(){
                 let directionDiv= document.querySelector('.directionDiv');
             directionDiv.innerHTML='<p>Try again! The iron bar is unmagnetised. Will it attract the steel clips?</p> <input type="radio" name="Attraction" id="Attracted" onchange="attractionRightAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> <br> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionWrongAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label>';
             }
+               
+            
+            function moveMagnet() {
+            
+                console.log(magnetBar);
+            magnetBar.draggable= false;
+           
+            magnetBar.onmousedown= ()=>{
+                magnetDragValue= magnetBar;
+                magnetMove();
+            }
+            function magnetMove(params) {
+                document.onmousemove= (e)=>{
+                magnetBar.style.position= "absolute";
+                    var x= e.pageX;
+                    var y= e.pageY;
+                    var p= x + "px";
+                    var q= y + "px";
+                    magnetDragValue.style.left= p;
+                    magnetDragValue.style.top= q;
+                    console.log( p, q);
+            }
+            magnetBar.onmouseup= (e)=>{
+                document.onmousemove= null;
                 
+            }
+            }
+
+        }
 
 
 
