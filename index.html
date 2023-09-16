@@ -17,15 +17,7 @@
         <div class="audioInstructions navDiv">
             Audio Instructions
             <img height="100px"  src="./images/voice-message.png" alt="">
-            <button onclick="
-            let switchOnIcon=document.querySelector('.switch-on-off-icon')
-            if(switchOnIcon.src=='./images/switch-off.png'){
-                switchOnIcon.src='./images/switch-on.png';
-            }
-            else{
-            switchOnIcon.src='./images/switch-off.png'
-            }
-            ">
+            <button onclick="onButtonChange()">
                 <img height="100px" src="./images/switch-on.png" alt="" class="switch-on-off-icon">
             </button>
         </div>
@@ -66,7 +58,7 @@
         <div>
                 Appratus
                 <div class="magnetsContainer">
-                    <img width="280px" draggable="true" height="20%" class="items" src="./images/bar.png" alt="">
+                    <img width="350px" draggable="true" height="10%" class="items" src="./images/bar.png" alt="">
                     <div>Bar magnet</div>
                     <div style="width: 280px; height: 100px;">
                     <div draggable="true" class="ironBar"  style="cursor: move;">
@@ -116,6 +108,7 @@
     let items= document.querySelectorAll(".items");
     let arrowedBar= document.createElement('img');
     let clipDiv= document.querySelector(".clipDiv");
+    let a =false;
      arrowedBar.src= "./images/arrowed.png";
      var dragvalue;
     
@@ -138,6 +131,20 @@
         }
     })
 
+    function onButtonChange(params) {
+        let switchOnIcon=document.querySelector('.switch-on-off-icon')
+        
+            if(a)
+            {
+                switchOnIcon.src='./images/switch-on.png';
+                a=false;
+            }
+            else 
+            {
+            switchOnIcon.src='./images/switch-off.png'
+            a= true;
+            }
+    }
 
     function afterDrag(){
         let draggingText =document.querySelector('.draggingText');
@@ -222,8 +229,23 @@
             emptySpace.removeChild(clips);
             clips.style.position= "static";
             clips.draggable= "false";
+            arrowedBar.onmousedown = null;
             clipDiv.appendChild(clips);
-
+            emptySpace.removeChild(arrowedBar);;
+            let divToStoreAnimation= document.createElement('div');
+            divToStoreAnimation.className= "divToStoreAnimation"
+            divToStoreAnimation.style.display= "flex";
+            divToStoreAnimation.style.flexDirection= "column";
+            arrowedBar.style.position= "static"
+                    
+            let arrowAnimation= document.createElement('img');
+            arrowAnimation.src ='./images/arrows.png';
+            arrowAnimation.id= "arrownimation";
+            
+            emptySpace.appendChild(divToStoreAnimation);
+            divToStoreAnimation.appendChild(arrowAnimation)
+            divToStoreAnimation.appendChild(arrowedBar)   
+         
 
          }
 
