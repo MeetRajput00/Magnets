@@ -7,14 +7,46 @@ body{
 }
 img{
     animation: GFG 4s linear 2s infinite ;
+    position: relative;
     
  }
   
         @keyframes GFG {
            0% {
-                transform: rotate(360deg) 
+                top: 0;
+                left: 0;
             }
-            to {
-                transform: rotate(0deg) 
+            24%{
+                rotate: 0deg;
             }
+            25% {
+                left: 200px;
+                top: 0;
+                rotate: 90deg;
+            }
+            49%{
+                rotate: 90deg;
+            }
+            50% {
+                left: 200px;
+                top: -200px;
+                rotate: 0deg;
+            }
+            74%{
+                rotate: 0deg;
+            }
+            75% {
+                left: 0;
+                top: -200px;
+                rotate: 90deg;
+            }
+            99%{
+                rotate: 90deg;
+            }
+            100% {
+                left: 0;
+                top: 0;
+                rotate: 0deg;
+            }
+            
         }
