@@ -1,52 +1,29 @@
 body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
+    margin: 0;
+    background-color: #a8d08c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
 }
-img{
-    animation: GFG 4s linear 2s infinite ;
-    position: relative;
-    
- }
-  
-        @keyframes GFG {
-           0% {
-                top: 0;
-                left: 0;
-            }
-            24%{
-                rotate: 0deg;
-            }
-            25% {
-                left: 200px;
-                top: 0;
-                rotate: 90deg;
-            }
-            49%{
-                rotate: 90deg;
-            }
-            50% {
-                left: 200px;
-                top: -200px;
-                rotate: 0deg;
-            }
-            74%{
-                rotate: 0deg;
-            }
-            75% {
-                left: 0;
-                top: -200px;
-                rotate: 90deg;
-            }
-            99%{
-                rotate: 90deg;
-            }
-            100% {
-                left: 0;
-                top: 0;
-                rotate: 0deg;
-            }
-            
-        }
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.navDiv{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: larger;
+    letter-spacing: 1px;
+    margin: 0 40px 0 40px;
+}
+.navDiv img{
+    padding: 0 3px 0 0;
+}
+.navDiv button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}

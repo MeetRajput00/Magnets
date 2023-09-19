@@ -6,12 +6,49 @@
     <title>Document</title>
     <link rel="stylesheet" href="trashie.css">
 </head>
-
 <body>
-    <div>
-        <img height="50px" src="./images/switch-off.png" alt="">    
+    <nav class="navbar">
+        <a href="">
+            <div class="navDiv utility">
+                <img height="100px" src="./images/home-button.png" alt="">
+                  &nbsp; Back To The Start
+            </div>
+        </a>
+        <div class="navDiv" id="audioInstructions">
+            Audio Instructions
+            <img height="100px"  src="./images/voice-message.png" alt="">
+            <button onclick="onButtonChange()">
+                <img height="100px" src="./images/switch-on.png" alt="" class="switch-on-off-icon">
+            </button>
+        </div>
+        <div class="navDiv" id=" backgroundInstructions ">
+            Background Music 
+            <img height="90px" src="./images/musical-note.png" alt="">
+            <button>
+                <img height="100px" src="./images/switch-on.png" alt="">
+            </button>
+        </div>
+    </nav>
+    <div class="albertAndIntro">
+        <img height="550px"src="./images/albert.png" alt="">
+        <div class="text-container">
+            <div class="intro">
+                In this simulation, you will explore how a magnetic material can be made into a temporary magnet using Stroke method.
+            </div>
+            <div>
+                <button onclick="                    
+                let a = document.querySelector('.albertAndIntro');
+                let b=  document.querySelector('.magnetsAndDrag');
+                let c=document.querySelector('.credits')
+                a.style.display= 'none';
+                b.style.display= 'flex';
+                c.style.display='none';
+                ">
+                    Start
+                </button>
+            </div>
+        </div>
     </div>
     
 </body>
-
 </html>

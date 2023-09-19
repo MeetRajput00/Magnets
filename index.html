@@ -58,18 +58,19 @@
         <div>
                 Appratus
                 <div class="magnetsContainer">
-                    <img width="350px" draggable="true" height="10%" class="items" src="./images/bar.png" id="magnetBar" alt="">
+                    <div  class="barDiv">
+                    <img width="350px" draggable="true"  class="items" src="./images/bar.png" id="magnetBar" alt="">
+                </div>
                     <div>Bar magnet</div>
-                    <div style="width: 280px; height: 100px;">
-                    <div draggable="true" class="ironBar"  style="cursor: move;">
-                    </div>
+                    <div class="allBars">
+                    <img draggable="true" class="ironBar"  style="cursor: move;" src="./images/Ibar.png" onmousedown="onIronBarClick()" >
                     </div>
                     <div>Iron Bar(Unmagnetised)</div>
-                    <div style="width: 280px; height: 100px;">
-                    <img width="280px" height="50px" draggable="true"  class="items" src="./images/steel.png" alt="">
+                    <div class="allBars">
+                    <img width="280px" height="50px" draggable="true"  class="items" src="./images/steel.png" alt="" id="steelRod" onmousedown="onSteelBarClick()">
                     </div>
                     <div>Steel Rod (Unmagnetised)</div>
-                    <div style="width: 280px; height: 100px;" class="clipDiv">
+                    <div class="clipDiv allBars">
                     <img width="180px" height="80px" draggable="true"  class="items" id="Clips" src="./images/8TEbeABzc-removebg-preview.png" alt="">
                     </div>
                     <div>Steel Clips</div>
@@ -84,55 +85,50 @@
             <div class="emptySpace">
                     
             </div>
-            <div class="directionDiv" style="display: none;">
-                <p>Click the correct observation.</p>
+            <div class="directionDiv" style="background-color: transparent; opacity: 0;">
+                <div style="text-align: left;">Click the correct observation.</div>
+                <br>
+                <div style="display: flex; flex-direction: row;">
                 <input type="radio" name="Direction" id="sameDirection" onchange="directionWrongAnswer()">
-                <label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> <br>
+                <label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> 
+                </div>
+                <br> 
+                <div style="display: flex; flex-direction: row;">
                 <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()">
                 <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label>
+                </div>
             </div>
         </div>
-
-
-
-
     </div>
 
 </body>
 <script>
-    let trash = false;
-    let trashForClips= false;
+   
     let emptySpace= document.querySelector('.emptySpace');
     let ironBar= document.querySelector(".ironBar");
+    let steelBar= document.querySelector("#steelRod")
     let clips= document.querySelector("#Clips");
     let items= document.querySelectorAll(".items");
     let arrowedBar= document.createElement('img');
     arrowedBar.src= "./images/arrowed.png";
+    arrowedBar.style.height="70px";
+    arrowedBar.style.width= "300px"
+    let arrowedSteel= document.createElement('img');
+    arrowedSteel.src= "./images/steelbarArrowed.png";
+    arrowedSteel.style.height="70px";
+    arrowedSteel.style.width= "300px"
     let directionDiv= document.querySelector('.directionDiv');
+    directionDiv.style.width= "50vw"
+    directionDiv.style.height= "150px"
     let clipDiv= document.querySelector(".clipDiv");
     let magnetBar= document.querySelector("#magnetBar");
     let draggingText= document.querySelector(".draggingText");
     let a =false;
-    var dragvalue;
-    var magnetDragValue, value;
-    
-
-   
-    ironBar.addEventListener('dragstart' , (event)=>{
-            trash= true
-        })
-   
-    emptySpace.addEventListener('dragover', (event)=>{
-        event.preventDefault();
-    })
-    emptySpace.addEventListener('drop', (event)=>{
-        if(trash)
-        {
-        emptySpace.appendChild(ironBar);
-        trash= false;
-        afterDrag();
-        }
-    })
+    var dragvalue, steelDragValue;
+    var magnetDragValue, value, barCheck, aBardiv, clippedDiv;
+    let divToStoreAnimation;
+    let trash = false;
+    var trashForClips;
 
     function onButtonChange(params) {
         let switchOnIcon=document.querySelector('.switch-on-off-icon')
@@ -149,12 +145,61 @@
             }
     }
 
-    function afterDrag(){
-        document.querySelector('.directionDiv').style.display= "block";
-        
+   function onIronBarClick(params) {
+    ironBar.addEventListener('dragstart' , (event)=>{
+            trash= true
+        })
+   
+    emptySpace.addEventListener('dragover', (event)=>{
+        event.preventDefault();
+    })
+    emptySpace.addEventListener('drop', (event)=>{
+        if(trash)
+        {
+        emptySpace.appendChild(ironBar);
+        trash= false;
+        afterDrag("1");
+        }
+    }) 
+   }
+   
+   function onSteelBarClick(params) {
+    steelBar.addEventListener('dragstart' , (event)=>{
+            trash= true
+        })
+   
+    emptySpace.addEventListener('dragover', (event)=>{
+        event.preventDefault();
+    })
+    emptySpace.addEventListener('drop', (event)=>{
+        if(trash)
+        {
+        emptySpace.appendChild(steelBar);
+        trash= false;
+        afterDrag("2");
+        }
+    }) 
+   }
+
+    
+
+    function afterDrag(bar){
+        directionDiv.style.backgroundColor= "white";
+        directionDiv.style.opacity= "1"
         draggingText.innerHTML="Step:2 <br>  Observe the directions of the arrows inside the unmagnetised magnetic material.<br> These arrows represent the magnetic domains or ‘tiny magnets’.";  
-        emptySpace.removeChild(ironBar);
-        emptySpace.appendChild(arrowedBar);
+        if(bar==="1"){
+            emptySpace.removeChild(ironBar);
+             emptySpace.appendChild(arrowedBar);
+             barCheck= false
+             steelBar.onmousedown= null
+        }
+        if(bar==="2"){
+            emptySpace.removeChild(steelBar);
+            emptySpace.appendChild(arrowedSteel);
+            barCheck= true;
+            ironBar.onmousedown= null
+        }
+       
         }
     
         function directionRightAnswer(){
@@ -173,7 +218,7 @@
                     if(trashForClips)
                     {
                     emptySpace.appendChild(clips);
-                    clips.style.position= "fixed"
+                    clips.style.position= "absolute"
                     clips.style.right= "40px"
                     trashForClips= false;
                     moveBar();
@@ -184,12 +229,13 @@
         }
         function directionWrongAnswer() {
             
-            directionDiv.innerHTML='<p>Try again! Study the directions of the arrows shown</p> <input type="radio"; name="Direction" id="sameDirection" onchange="directionWrongAnswer()"><label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> <br> <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()"> <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label>';
+            directionDiv.innerHTML='<div style="text-align: left;">Try again! Study the directions of the arrows shown.</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="directionWrongAnswer()"><label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()"> <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label> </div>';
         }
     
 
         function moveBar() {
-            arrowedBar.draggable= false;
+            if(barCheck===false){
+                arrowedBar.draggable= false;
             arrowedBar.style.position= "absolute";
             arrowedBar.onmousedown= ()=>{
                 dragvalue= arrowedBar;
@@ -211,12 +257,37 @@
                 afterMove();
             }
             }
+            }
+            if(barCheck){
+                arrowedSteel.draggable= false;
+            arrowedSteel.style.position= "absolute";
+            arrowedSteel.onmousedown= ()=>{
+                steelDragValue= arrowedSteel;
+                move();
+                
+            }
+            function move(params) {
+                document.onmousemove= (e)=>{
+                    var x= e.pageX;
+                    var y= e.pageY;
+                    var p= x + "px";
+                    var q= y + "px";
+                    steelDragValue.style.left= p;
+                    steelDragValue.style.top= q;
+                    
+            }
+            arrowedSteel.onmouseup= (e)=>{
+                document.onmousemove= null;
+                afterMove();
+            }
+            }
+            }
 
         }
 
 
         function afterMove() {
-            directionDiv.innerHTML='<p>Click the correct observation.</p> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> <br> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label>';
+            directionDiv.innerHTML='<div style="text-align: left;"><p>Click the correct observation.</p></div> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label> </div>';
         }
         function attractionRightAnswer(){
             
@@ -227,37 +298,49 @@
             emptySpace.removeChild(clips);
             clips.style.position= "static";
             clips.style.draggable= false;
-            arrowedBar.onmousedown = null;
             clipDiv.appendChild(clips);
-            emptySpace.removeChild(arrowedBar);;
-            let divToStoreAnimation= document.createElement('div');
+            divToStoreAnimation= document.createElement('div');
             divToStoreAnimation.className= "divToStoreAnimation"
             divToStoreAnimation.style.display= "flex";
             divToStoreAnimation.style.flexDirection= "column";
-            arrowedBar.style.position= "static"
+          
                     
             let arrowAnimation= document.createElement('img');
             arrowAnimation.src ='./images/arrows.png';
             arrowAnimation.id= "arrownimation";
             
             emptySpace.appendChild(divToStoreAnimation);
+            if(barCheck===false)
+            {
+                arrowedBar.onmousedown = null;
+            emptySpace.removeChild(arrowedBar);
+            arrowedBar.style.position= "static"
             divToStoreAnimation.appendChild(arrowAnimation)
             divToStoreAnimation.appendChild(arrowedBar)
+            }
+            else{
+                arrowedSteel.onmousedown = null;
+            emptySpace.removeChild(arrowedSteel);
+            arrowedSteel.style.position= "static"
+            divToStoreAnimation.appendChild(arrowAnimation)
+            divToStoreAnimation.appendChild(arrowedSteel)
+            }
+            
             clips.draggable= false; 
             moveMagnet();
          }
 
             function attractionWrongAnswer(){
-            directionDiv.innerHTML='<p>Try again! The iron bar is unmagnetised. Will it attract the steel clips?</p> <input type="radio" name="Attraction" id="Attracted" onchange="attractionRightAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> <br> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionWrongAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label>';
+            directionDiv.innerHTML='<div style="text-align: left;">Try again! The iron bar is unmagnetised. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="attractionWrongAnswer()"><label for="sameDirection">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="attractionRightAnswer()"> <label for= "differentDirection">The unmagnetised iron bar did not attract any steel clips.</label> </div>';
             }
                
             
             function moveMagnet() {
-                directionDiv.style.display= "none"
+                directionDiv.innerHTML= ""
+                directionDiv.style.backgroundColor= "transparent"
                 magnetBar.style.transform= "rotate(25deg)"
             
-                console.log(magnetBar);
-            magnetBar.draggable= false;
+                magnetBar.draggable= false;
            
             magnetBar.onmousedown= ()=>{
                 magnetDragValue= magnetBar;
@@ -272,36 +355,130 @@
                     q= y + "px";
                     magnetDragValue.style.left= p;
                     magnetDragValue.style.top= q;
-                    console.log(p, q);
                     if(x>1200){
-                    console.log("ASdas");
-                    magnetMoving()
+                        setTimeout(() => {
+                            magnetMoving()
+                        }, 3000);
+                   
                 }
             }
             document.onmouseup= (e)=>{
                 document.onmousemove= null;
-              
-                
             }
             }
+            
 
         }
             function magnetMoving(params) {
-                arrowedBar.src= "./images/sameDirection.png"
-                directionDiv.style.position= "absolute"
-                directionDiv.style.display= "block"
-                directionDiv.innerHTML= '<p>Click the correct observation.</p> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label>';
+                
+                if(barCheck===false){
+                    arrowedBar.src= "./images/sameDirection.png"
+                arrowedBar.style.width= "320px"
+                arrowedBar.style.height= "85px"
+                }
+                if(barCheck===true){
+                arrowedSteel.src= "./images/steelSame.png"
+                arrowedSteel.style.width= "320px"
+                arrowedSteel.style.height= "60px"
+                }
+                directionDiv.style.backgroundColor= "white"
+                directionDiv.style.position= "static"
+                directionDiv.style.display= "flex"
+                directionDiv.innerHTML= '<div style="text-align: left;"><p>Click the correct observation.</p> </div> <br><div style="display: flex; flex-direction: row;">  <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label></div> <br><div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
             }
 
             function magnetsInDiffDirection(params) {
-                directionDiv.innerHTML='<p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label>'
+                directionDiv.innerHTML='<div style="text-align: left;"><p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>'
 
             }
             function magnetsInSameDirection(params) {
                 directionDiv.innerHTML='<p>Good observation! The ‘tiny magnets’ are attracted to the pole of the bar magnet. As the bar magnet moved across the magnetic material, these ‘tiny magnets’ also moved in the same direction.'
-                emptySpace.removeChild(magnetBar)
-                draggingText.innerHTML='Step 5: <br> When the ‘tiny magnets’ are pointing in the same direction, the magnetic material has become a temporary magnet.<br>Drag and drop the steel clips near the magnetised magnetic material. What will you observe?'
+                    
+                magnetBar.style.position= "static";
+                magnetBar.style.draggable= false;
+                magnetBar.style.transform= 'rotate(0deg)'
+                let divToStoreAnimation=  document.querySelector(".divToStoreAnimation")
+                emptySpace.removeChild(divToStoreAnimation);
+                if(barCheck===false)
+                {
+                    aBardiv= document.createElement("div")
+                    aBardiv.id= "aBarDiv"
+                    arrowedBar.style.position= "static"
+                    aBardiv.style.alignItems= "center"
+                    aBardiv.appendChild(arrowedBar)
+                    emptySpace.appendChild(aBardiv)
+                }
+                else{
+                    aBardiv= document.createElement("div")
+                    aBardiv.id= "aBarDiv"
+                    arrowedSteel.style.position= "static"
+                    aBardiv.style.alignItems= "center"
+                    aBardiv.appendChild(arrowedSteel)
+                    emptySpace.appendChild(aBardiv)
+                }
+               
+             
+               barDiv= document.querySelector(".barDiv");
+                barDiv.appendChild(magnetBar)
+                
+                draggingText.innerHTML='Step 5: <br> When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.  Drag and drop the steel clips <br> near the magnetised magnetic material. What will you observe?'
+                clips.draggable= true;
+
+                
+                
+                
+                clips.addEventListener('dragstart' , (event)=>{
+               
+
+                })
+
+                emptySpace.addEventListener('dragover', (event)=>{
+                    event.preventDefault();
+                })
+
+                emptySpace.addEventListener('drop', (event)=>{
+                    clippedDiv= document.createElement('div');
+                
+                    clippedDiv.id= "clippedDiv";
+                    clips.style.position= "relative"
+                    arrowedSteel.style.position= "static"
+                    arrowedBar.style.position= "static"
+                    aBardiv.style.alignItems= "end"
+                    clippedDiv.appendChild(clips)
+                    emptySpace.appendChild(clippedDiv)
+                    
+                    clips.onmousedown= null;
+                    clips.draggable= false;
+                    ironBar.draggable= false;
+                    arrowedSteel.draggable= false;
+                    arrowedBar.draggable= false;
+                    magnetBar.onmousedown= null;
+                    setTimeout(() => {
+                        clippedDiv.style.justifyContent= "start"
+                        setTimeout(() => {
+                            afterClipStick();
+                        }, 1000);
+                        
+                    }, 1000);
+                })
+
             }
+         
+            function afterClipStick(params) {
+         
+                directionDiv.innerHTML= '<div style="text-align: left;"><p>Click the correct observation.</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="sticked" onchange="sticked()"><label for="sticked">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="notSticked" onchange="notSticked()"> <label for= "notSticked">The magnetised iron bar did not attract any steel clips.</label> </div>'
+            }
+            function sticked(params) {
+                    directionDiv.innerHTML= "Well done! The magnetised iron bar is a temporary magnet so it can attract steel clips!"
+                    setTimeout(() => {
+                        emptySpace.removeChild(clippedDiv)
+                        clipDiv.appendChild(clips)
+                        aBardiv.style.alignItems= "center"
+                    }, 1000);
+                }
+                function notSticked(params) {
+                    directionDiv.innerHTML= '<div style="text-align: left;"><p>Try again! The iron bar is now a temporary magnet. Will it attract the steel clips?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="sticked()"><label for="diffDirection">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="notSticked()"> <label for= "sameDirection">The magnetised iron bar did not attract any steel clips.</label> </div>'
+                }
 
 
         

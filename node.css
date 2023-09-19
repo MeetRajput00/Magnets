@@ -4,6 +4,7 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 30px;
+    overflow-x: hidden;
 }
 a{
     text-decoration: none;
@@ -120,17 +121,22 @@ a{
     border-style: solid;
     border-color: black;
 }
+.allBars{
+    margin: 35px;
+}
 .credits{
     margin-top: 100px;
     margin-left: 10px;
 }
 .directionDiv{
     background-color: white;
-    text-align: left;
     border-radius: 10px;
     padding: 15px;
     font-size: large;
     margin: 20px 0 2px 2px;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
 }
 .divToStoreAnimation{
     display: flex;
@@ -183,4 +189,22 @@ a{
      
  }
 
+#clippedDiv{
+    display: flex;
+    width: 80%;
+    justify-content: end;
+}
+#aBarDiv{
+    display: flex;
+    width: 100%;
+    align-items: end;
+}
  
+@keyframes movement {
+    0%{
+        left:20px
+    }
+    100%{
+        left: 500px
+    }
+}
