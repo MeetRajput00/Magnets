@@ -213,3 +213,10 @@ a{
     flex-direction: row;
     justify-content: center;
 }
+#resetButton{
+    padding: 25px;
+    background-color: lightblue;
+    font-size: larger;
+    border-radius: 10px;
+    border: none;
+}

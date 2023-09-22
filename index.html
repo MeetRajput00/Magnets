@@ -413,7 +413,7 @@
                     aBardiv= document.createElement("div")
                     aBardiv.id= "aBarDiv"
                     arrowedBar.style.position= "static"
-                    aBardiv.style.alignItems= "center"
+                    aBardiv.style.justifyContent= "center"
                     aBardiv.appendChild(arrowedBar)
                     emptySpace.appendChild(aBardiv)
                 }
@@ -538,82 +538,106 @@
 
                     NSdiv.style.marginTop= "50px"
                     NSdiv.append(N,S)
-                    
-                        N.addEventListener('dragstart' , (event)=>{
-                            NorthOrSouth= true
-                            draggedN()
-                        })
-                        
-                        S.addEventListener('dragstart' , (event)=>{
 
-                            draggedS()
-                        })
-                        function draggedN(params) {
-                            
-            blank1.addEventListener('dragover', (event)=>
-            {
-            event.preventDefault();
-        })
-        blank1.addEventListener('drop', (event)=>
-        {
-            Lchoice+= 1;
-            WrongChoice();
-            console.log(NorthOrSouth);
+                    draggingNorS()
+            }
+            
 
-                N.style.marginTop= "0"
-                NSdiv.removeChild(N);
-                blank1.appendChild(N);
-            })
-                            blank2.addEventListener('dragover', (event)=>
-                            {
-                            event.preventDefault();
-                        })
-                        blank2.addEventListener('drop', (event)=>
-                        {
-                                N.style.marginTop= "0 "
-                                
-                                NSdiv.removeChild(N);
-                                Wchoice+=1;
-                                RightChoice();
-                                blank2.appendChild(N);
-                            })
+            function draggingNorS() {
+                Lchoice= 0;
+                Wchoice= 0;
+                console.log(Wchoice);
+                console.log(Lchoice);
+                console.log(blank1.children);
+                console.log(blank1.children.length);
 
-                        
-                        }
-                        function draggedS(params) {
-
-            blank2.addEventListener('dragover', (event)=>
-            {
-            event.preventDefault();
-        })
-        blank2.addEventListener('drop', (event)=>
-        {
-                S.style.marginTop= "0"
-                Lchoice+= 1; 
-                WrongChoice();
-                
-                NSdiv.removeChild(S)
-                blank2.appendChild(S);
-            })
-                            blank1.addEventListener('dragover', (event)=>
-                            {
-                            event.preventDefault();
-                        })
-                        blank1.addEventListener('drop', (event)=>
-                        {
-                                S.style.marginTop= "0"
-                                
-                                NSdiv.removeChild(S);
-                                Wchoice+=1;
-                                RightChoice();
-                                blank1.appendChild(S);
-                            })
-                                             
-                            
-                        }
-                   
+                N.ondrag=(event)=>{
+                    event.preventDefault();
+                    draggedN()
                 }
-                function WrongChoice(params) {
+                
+                            
+                        
+               S.ondrag= (event)=>{
+                    event.preventDefault();
+                    draggedS()
+                }
+                            
+            }
+
+            function draggedN() {
+
+                blank1.ondragover= (event)=>{
+                        event.preventDefault();
+                }
+                blank2.ondragover= (event)=>{
+                    event.preventDefault();
+                }
+            
+
+                blank1.ondrop= (event)=>{
+                    
+                        NSdiv.removeChild(N)
+                        blank1.appendChild(N)
+                        Lchoice+=1;
+                        WrongChoice();
+                   
+                    
+                }
+
+                
+                blank2.ondrop= (event)=>{
+                    console.log(blank1.children.length);
+                   
+                        NSdiv.removeChild(N)
+                        blank2.appendChild(N)
+                        Wchoice+= 1; 
+                        RightChoice();
+                    
+                    
+                    
+                }
+            
+            }
+ 
+           function draggedS() 
+           {
+                blank1.addEventListener('dragover', (event)=>{
+                        event.preventDefault();
+                })
+                blank2.addEventListener('dragover', (event)=>{
+                    event.preventDefault();
+                })
+
+                blank1.ondrop= (event)=>{
+                    
+                        NSdiv.removeChild(S)
+                    blank1.appendChild(S)
+                    Wchoice+= 1;
+                    console.log("AWDadasdasds");
+                    RightChoice();
+                    
+                    
+                }
+                
+                blank2.ondrop= (event)=>{
+                    
+                    NSdiv.removeChild(S)
+                    blank2.appendChild(S)
+                    Lchoice+=1;
+                    WrongChoice();
+                    
+                    
+                }
+            }
+
+
+
+
+
+
+
+            function WrongChoice(params) {
                     console.log("entered");
                     if(Lchoice===2){
                         console.log("hmmm");
@@ -625,6 +649,10 @@
                     NSdiv.appendChild(N)
                     NSdiv.appendChild(S)
                     directionDiv.innerHTML= "Try Again!! <br> A magnet has two poles, North pole and South pole. <br>Unlike poles of magnets attract each other. <br> Which pole of the ‘tiny magnets’ is attracted to the South of the bar magnet?"
+                            blank1.addEventListener('drop', (e)=>{
+                                console.log("pteet");
+                            })
+                    draggingNorS()
                     
                 }, 1000);
 
@@ -641,10 +669,26 @@
                     directionDiv.style.textAlign= "left"
                     draggingText.innerHTML= "What will be the poles of the temporary magnet? <br> Drag and drop ‘N’ and ‘S’ to indicate the poles.<br> (Hint: Think about the pole of the ‘tiny magnet’ that is attracted <br> to the pole of the bar magnet during the stroking process.)"
                     directionDiv.innerHTML= "Perfect! <br> A magnet has two poles, North pole and South pole.<br>The North pole of the ‘tiny magnets’ is attracted to the South of the bar magnet because unlike poles attract.<br>Therefore, the end of the temporary magnet will become a North pole."
+
+                            setTimeout(() => {
+                                draggingText.innerHTML= "Step 6: <br> Try the activity again using a different rod. <br>You can also use the different end of the bar magnet to <br> stroke the magnetic material!"
+                                directionDiv.innerHTML= ""
+                                draggingText.style.backgroundColor= "lightgoldenrodyellow"
+                                directionDiv.style.opacity= "0"
+                                emptySpace.removeChild(aBardiv)
+                                let resetLink = document.createElement('a');
+                                console.log(resetLink);
+                                resetLink.href= "";
+                                let resetButton= document.createElement('button');
+                                resetButton.id= "resetButton"
+                                resetButton.innerHTML= "Reset Simulation To Try Again";
+                                console.log(resetButton);
+                                resetLink.append(resetButton)
+                                NSdiv.appendChild(resetLink)
+                            }, 2000);
                 }, 1000);
 
                     }
                 }
-
 </script>
 </html>
