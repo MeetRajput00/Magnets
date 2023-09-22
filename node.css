@@ -196,15 +196,20 @@ a{
 }
 #aBarDiv{
     display: flex;
+    flex-direction: row;
     width: 100%;
-    align-items: end;
+    justify-content: end;
 }
  
-@keyframes movement {
-    0%{
-        left:20px
-    }
-    100%{
-        left: 500px
-    }
+.Blank{
+    margin: 0 30px 0 30px;
+    border-style: dashed;
+    background-color: #fbf3cb;
+    height: 90px;
+    width: 70px;
+}
+#NSdiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
