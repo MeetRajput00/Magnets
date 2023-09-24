@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="node.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+
     <nav class="navbar">
         <a href="">
             <div class="home navDiv">
-                <img height="100px" src="./images/home-button.png" alt="">
+                <img  src="./images/home-button.png" alt="">
                   &nbsp; Back To The Start
             </div>
         </a>
         <div class="audioInstructions navDiv">
             Audio Instructions
-            <img height="100px"  src="./images/voice-message.png" alt="">
+            <img  src="./images/voice-message.png" alt="">
             <button onclick="onButtonChange()">
-                <img height="100px" src="./images/switch-on.png" alt="" class="switch-on-off-icon">
+                <img src="./images/switch-on.png" alt="" class="switch-on-off-icon">
             </button>
         </div>
         <div class=" backgroundInstructions navDiv ">
@@ -31,7 +33,7 @@
     </nav>
 
     <div class="albertAndIntro">
-        <img height="550px"src="./images/albert.png" alt="">
+        <img src="./images/albert.png" alt="">
         <div class="text-container">
             <div class="intro">
                 In this simulation, you will explore how a magnetic material can be made into a temporary magnet using Stroke method.
@@ -59,19 +61,19 @@
                 Appratus
                 <div class="magnetsContainer">
                     <div  class="barDiv">
-                    <img width="350px" draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
-                </div>
+                    <img  draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
+                    </div>
                     <div>Bar magnet</div>
                     <div class="allBars">
-                    <img draggable="false" class="ironBar"  style="cursor: move;" src="./images/Ibar.png" onmousedown="onIronBarClick()" >
+                    <img draggable="false" class="ironBar" id="ironRod" style="cursor: move;" src="./images/Ibar.png" onmousedown="onIronBarClick()" >
                     </div>
                     <div>Iron Bar(Unmagnetised)</div>
                     <div class="allBars">
-                    <img width="280px" height="50px" draggable="false"  class="items" src="./images/steel.png" alt="" id="steelRod" onmousedown="onSteelBarClick()">
+                    <img draggable="false"  class="items" src="./images/steel.png" alt="" id="steelRod" onmousedown="onSteelBarClick()">
                     </div>
                     <div>Steel Rod (Unmagnetised)</div>
                     <div class="clipDiv allBars">
-                    <img width="180px" height="80px" draggable="false"  class="items" id="Clips" src="./images/8TEbeABzc-removebg-preview.png" alt="">
+                    <img draggable="false"  class="items" id="Clips" src="./images/8TEbeABzc-removebg-preview.png" alt="">
                     </div>
                     <div>Steel Clips</div>
                 </div>
@@ -111,27 +113,24 @@
     let items= document.querySelectorAll(".items");
     let arrowedBar= document.createElement('img');
     arrowedBar.src= "./images/arrowed.png";
-    arrowedBar.style.height="70px";
-    arrowedBar.style.width= "300px"
+    arrowedBar.id= "arrowedBar"
     let arrowedSteel= document.createElement('img');
     arrowedSteel.src= "./images/steelbarArrowed.png";
-    arrowedSteel.style.height="70px";
-    arrowedSteel.style.width= "300px"
+    arrowedSteel.id= "arrowedSteel"
     let directionDiv= document.querySelector('.directionDiv');
-    directionDiv.style.width= "50vw"
-    directionDiv.style.height= "150px"
     let clipDiv= document.querySelector(".clipDiv");
     let magnetBar= document.querySelector("#magnetBar");
     let draggingText= document.querySelector(".draggingText");
     let a =false;
     var dragvalue, steelDragValue;
     var magnetDragValue, value, barCheck, aBardiv, clippedDiv;
-    let divToStoreAnimation, blank1, blank2, adder, clipvalue, NSdiv, N, S;
+    let divToStoreAnimation, blank1, blank2, adder, clipvalue, NSdiv, N, S, arrowAnimation;
     let Lchoice= 0;
     let Wchoice= 0;
     let trash = false;
     var trashForClips;
     var garbageValue= true;
+    var bodywidth=document.body.clientWidth;
 
     function onButtonChange(params) {
         let switchOnIcon=document.querySelector('.switch-on-off-icon')
@@ -190,7 +189,7 @@
     
 
     function afterDrag(bar){
-        directionDiv.style.backgroundColor= "white";
+        directionDiv.style.backgroundColor= "lightblue";
         directionDiv.style.opacity= "1"
         draggingText.innerHTML="Step:2 <br>  Observe the directions of the arrows inside the unmagnetised magnetic material.<br> These arrows represent the magnetic domains or ‘tiny magnets’.";  
         if(bar==="1"){
@@ -311,7 +310,7 @@
             divToStoreAnimation.style.flexDirection= "column";
           
                     
-            let arrowAnimation= document.createElement('img');
+            arrowAnimation= document.createElement('img');
             arrowAnimation.src ='./images/arrows.png';
             arrowAnimation.id= "arrownimation";
             
@@ -362,12 +361,24 @@
                     magnetDragValue.style.left= p;
                     magnetDragValue.style.top= q;
                     if(garbageValue){
-                        if(x>1200){
+                        if(bodywidth<1500)
+                        {
+                            if(x>500){
                         garbageValue= false;
                         setTimeout(() => {
                             magnetMoving()
-                        }, 3000);
-                    }
+                            }, 5000);
+                        }
+                     }
+                        else{
+                            if(x>1200){
+                        garbageValue= false;
+                        setTimeout(() => {
+                            magnetMoving()
+                                }, 5000);
+                            }
+                        }
+                        
                     }
                     
             }
@@ -382,18 +393,18 @@
                 
                 if(barCheck===false){
                     arrowedBar.src= "./images/sameDirection.png"
-                arrowedBar.style.width= "320px"
-                arrowedBar.style.height= "85px"
+
                 }
                 if(barCheck===true){
                 arrowedSteel.src= "./images/steelSame.png"
-                arrowedSteel.style.width= "320px"
-                arrowedSteel.style.height= "60px"
+             
                 }
-                directionDiv.style.backgroundColor= "white"
+                directionDiv.style.backgroundColor= "lightblue"
                 directionDiv.style.position= "static"
                 directionDiv.style.display= "flex"
-                directionDiv.innerHTML= '<div style="text-align: left;"><p>Click the correct observation.</p> </div> <br><div style="display: flex; flex-direction: row;">  <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label></div> <br><div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
+                directionDiv.innerHTML= '<div style="text-align: left;"><p>Click the correct observation.</p> </div><div style="display: flex; flex-direction: row;">  <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label></div> <br><div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
+                let divToStoreAnimation=  document.querySelector(".divToStoreAnimation")
+                divToStoreAnimation.removeChild(arrowAnimation)
             }
 
             function magnetsInDiffDirection(params) {

@@ -1,11 +1,12 @@
+
 body{
-    margin: 0;
     background-color: #a8d08c;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 30px;
-    overflow-x: hidden;
+    overflow: hidden;
 }
+
 a{
     text-decoration: none;
     color: black;
@@ -25,6 +26,7 @@ a{
 }
 .navDiv img{
     padding: 0 3px 0 0;
+    height: 100px;
 }
 .navDiv button{
     background: none;
@@ -41,6 +43,9 @@ a{
     align-items: center;
     justify-content: center;
     width: 80%;
+}
+.albertAndIntro img{
+    height: 550px;
 }
 .intro {
     margin:  0 0 50px 0;
@@ -68,7 +73,6 @@ a{
 .magnetsAndDrag{
     display: none;
     flex-direction: row;
-    align-items: center;
     justify-content: center;
     text-align: center;
 }
@@ -92,6 +96,25 @@ a{
 .magnetsContainer img{
     cursor: move;
 }
+#magnetBar{
+    width: 350px;
+}
+#steelRod{
+    width: 280px; 
+    height: 50px;
+}
+#arrowedSteel{
+    height: 70px;
+    width: 300px;
+}
+#Clips{
+    width: 180px;
+    height: 80px;
+}
+.drag{
+    display: flex;
+    flex-direction: column;
+}
 .draggingText{
     border-style: solid;
     border-radius: 15px;
@@ -101,10 +124,7 @@ a{
     text-align: left;
     position: relative;
 }
-.drag{
-    display: flex;
-    flex-direction: column;
-}
+
 .emptySpace{
     margin: 5px 0 0 5px;
     height: 400px;
@@ -121,6 +141,10 @@ a{
     border-style: solid;
     border-color: black;
 }
+#arrowedBar{
+    height: 70px;
+    width: 300px;
+}
 .allBars{
     margin: 35px;
 }
@@ -129,14 +153,17 @@ a{
     margin-left: 10px;
 }
 .directionDiv{
-    background-color: white;
+    background-color: lightblue;
     border-radius: 10px;
-    padding: 15px;
+    padding: 10px;
     font-size: large;
-    margin: 20px 0 2px 2px;
+    margin:  2px 2px;
+    display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: center;
+    height: 150px;
+    width: 50vw;
 }
 .divToStoreAnimation{
     display: flex;
@@ -145,7 +172,7 @@ a{
 }
 #arrownimation{
     animation: GFG 4s linear infinite ;
-   position: relative;
+    position: relative;
     padding: 10px;
     height: 50px;
 }
@@ -220,3 +247,100 @@ a{
     border-radius: 10px;
     border: none;
 }
+@media only screen and (max-width: 1600px) {
+    body {
+    font-size: 15px;
+    }
+    .navDiv img{
+        height: 60px;
+    }
+    .albertAndIntro img{
+        height: 430px;
+    }
+    .albertAndIntro button{
+        padding: 15px;
+        font-size: 20px;
+    }
+    .credits{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    .magnetsContainer{
+        height: 80vh;
+        width: 25vw;
+    }
+    #magnetBar{
+        width: 250px;
+    }
+    #steelRod{
+        width: 230px; 
+        height: 35px;
+    }
+    #Clips{
+        width: 120px;
+        height: 60px;
+    }
+    .emptySpace{
+        margin: 5px 0 0 5px;
+        height: 300px;
+        width: 100%;
+    }
+    #arrowedBar{
+        height: 55px;
+        width: 270px;
+    }
+    #arrowedSteel{
+        height: 40px;
+        width: 250px;
+    }
+    .directionDiv{
+        padding: 15px;
+        font-size: small;
+        height: 90px;
+        margin: 20px 0 2px 2px;
+    }
+    #arrownimation{
+        padding: 10px;
+        height: 30px;
+    }
+    @keyframes GFG {
+        0% {
+             top: 0;
+             left: -130px;
+         }
+         24%{
+             rotate: 0deg;
+         }
+         25% {
+             left: 130px;
+             top: 0;
+             rotate: -90deg;
+         }
+         49%{
+             rotate: -90deg;
+         }
+         50% {
+             left: 130px;
+             top: -100px;
+             rotate: -180deg;
+         }
+         74%{
+             rotate: -180deg;
+         }
+         75% {
+             left: -130px;
+             top: -100px;
+             rotate: -270deg;
+         }
+         99%{
+             rotate: -270deg;
+         }
+         100% {
+             left: -130px;
+             top: 0;
+             rotate: -360deg;
+         }
+         
+     }
+    
+  }
