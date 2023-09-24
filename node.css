@@ -17,6 +17,9 @@ a{
     justify-content: space-evenly;
     background-color: inherit;
 }
+.bg-music{
+    display: none;
+}
 .navDiv{
     display: flex;
     flex-direction: row;

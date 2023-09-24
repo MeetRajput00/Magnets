@@ -26,8 +26,8 @@
         <div class=" backgroundInstructions navDiv ">
             Background Music 
             <img height="90px" src="./images/musical-note.png" alt="">
-            <button>
-                <img height="100px" src="./images/switch-on.png" alt="">
+            <button onclick="btnForBgMusic()">
+                <img height="100px" src="./images/switch-on.png" alt="" class="second-switch-on-off-icon">
             </button>
         </div>
     </nav>
@@ -58,8 +58,8 @@
 
     <div class="magnetsAndDrag" >
         <div>
-                Appratus
-                <div class="magnetsContainer">
+                        Appratus
+                    <div class="magnetsContainer">
                     <div  class="barDiv">
                     <img  draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
                     </div>
@@ -76,8 +76,8 @@
                     <img draggable="false"  class="items" id="Clips" src="./images/8TEbeABzc-removebg-preview.png" alt="">
                     </div>
                     <div>Steel Clips</div>
-                </div>
         </div>
+    </div>
 
         <div class="Drag">
         <div class="draggingText">
@@ -103,10 +103,13 @@
         </div>
     </div>
 
+    <audio controls src="./images/bgMusic.mp3" class="bg-music"></audio>
+
 </body>
 <script>
    
     let emptySpace= document.querySelector('.emptySpace');
+    let backgroundMusic= document.querySelector(".bg-music");
     let ironBar= document.querySelector(".ironBar");
     let steelBar= document.querySelector("#steelRod")
     let clips= document.querySelector("#Clips");
@@ -122,6 +125,7 @@
     let magnetBar= document.querySelector("#magnetBar");
     let draggingText= document.querySelector(".draggingText");
     let a =false;
+    let c= false;
     var dragvalue, steelDragValue;
     var magnetDragValue, value, barCheck, aBardiv, clippedDiv;
     let divToStoreAnimation, blank1, blank2, adder, clipvalue, NSdiv, N, S, arrowAnimation;
@@ -143,6 +147,21 @@
             {
             switchOnIcon.src='./images/switch-off.png'
             a= true;
+            }
+    }
+    function btnForBgMusic(params) {
+        let switchOnIcon=document.querySelector('.second-switch-on-off-icon')
+            if(c)
+            {
+                switchOnIcon.src='./images/switch-on.png';
+                backgroundMusic.pause();
+                c=false;
+            }
+            else 
+            {
+            switchOnIcon.src='./images/switch-off.png'
+            backgroundMusic.play()
+            c= true;
             }
     }
 
@@ -393,11 +412,9 @@
                 
                 if(barCheck===false){
                     arrowedBar.src= "./images/sameDirection.png"
-
                 }
                 if(barCheck===true){
                 arrowedSteel.src= "./images/steelSame.png"
-             
                 }
                 directionDiv.style.backgroundColor= "lightblue"
                 directionDiv.style.position= "static"
