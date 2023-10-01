@@ -381,7 +381,7 @@
             }            
             
             function moveMagnet() {
-                directionDiv.innerHTML= ""
+                directionDiv.style.opacity= "0"
                 directionDiv.style.backgroundColor= "transparent"
                 magnetBar.style.transform= "rotate(25deg)"            
                 magnetBar.draggable= false;           
@@ -401,7 +401,7 @@
                     if(garbageValue){
                         if(bodywidth<1500)
                         {
-                            if(x>500){
+                            if(x>400){
                         garbageValue= false;
                         setTimeout(() => {
                             magnetMoving()
@@ -409,7 +409,7 @@
                         }
                      }
                         else{
-                            if(x>1200){
+                            if(x>1000){
                         garbageValue= false;
                         setTimeout(() => {
                             magnetMoving()
@@ -428,6 +428,7 @@
 
         }
             function magnetMoving(params) {
+                directionDiv.style.opacity= "1"
                 
                 if(barCheck===false){
                     arrowedBar.src= "./images/sameDirection.png"
