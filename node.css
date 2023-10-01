@@ -1,12 +1,13 @@
-
 body{
     background-color: #a8d08c;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 30px;
     overflow: hidden;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
-
 a{
     text-decoration: none;
     color: black;
@@ -14,8 +15,11 @@ a{
 .navbar{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: inherit;
+    align-self: flex-start;
+    width: 100%;
+    height: 20%;
 }
 .bg-music{
     display: none;
@@ -38,17 +42,17 @@ a{
     padding: 0;
 }
 .albertAndIntro{
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
+    align-self: center;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-top: 12%;
     width: 80%;
+    height: 75%;
 }
 .albertAndIntro img{
-    height: 550px;
+    height: 400px;
 }
 .intro {
     margin:  0 0 50px 0;
@@ -152,7 +156,8 @@ a{
     margin: 35px;
 }
 .credits{
-    margin-top: 100px;
+    position: absolute;
+    bottom: 70px;
     margin-left: 10px;
 }
 .directionDiv{
@@ -250,100 +255,3 @@ a{
     border-radius: 10px;
     border: none;
 }
-@media only screen and (max-width: 1600px) {
-    body {
-    font-size: 15px;
-    }
-    .navDiv img{
-        height: 60px;
-    }
-    .albertAndIntro img{
-        height: 430px;
-    }
-    .albertAndIntro button{
-        padding: 15px;
-        font-size: 20px;
-    }
-    .credits{
-        margin-top: 10px;
-        margin-left: 10px;
-    }
-    .magnetsContainer{
-        height: 80vh;
-        width: 25vw;
-    }
-    #magnetBar{
-        width: 250px;
-    }
-    #steelRod{
-        width: 230px; 
-        height: 35px;
-    }
-    #Clips{
-        width: 120px;
-        height: 60px;
-    }
-    .emptySpace{
-        margin: 5px 0 0 5px;
-        height: 300px;
-        width: 100%;
-    }
-    #arrowedBar{
-        height: 55px;
-        width: 270px;
-    }
-    #arrowedSteel{
-        height: 40px;
-        width: 250px;
-    }
-    .directionDiv{
-        padding: 15px;
-        font-size: small;
-        height: 90px;
-        margin: 20px 0 2px 2px;
-    }
-    #arrownimation{
-        padding: 10px;
-        height: 30px;
-    }
-    @keyframes GFG {
-        0% {
-             top: 0;
-             left: -130px;
-         }
-         24%{
-             rotate: 0deg;
-         }
-         25% {
-             left: 130px;
-             top: 0;
-             rotate: -90deg;
-         }
-         49%{
-             rotate: -90deg;
-         }
-         50% {
-             left: 130px;
-             top: -100px;
-             rotate: -180deg;
-         }
-         74%{
-             rotate: -180deg;
-         }
-         75% {
-             left: -130px;
-             top: -100px;
-             rotate: -270deg;
-         }
-         99%{
-             rotate: -270deg;
-         }
-         100% {
-             left: -130px;
-             top: 0;
-             rotate: -360deg;
-         }
-         
-     }
-    
-  }
