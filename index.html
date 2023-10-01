@@ -56,22 +56,29 @@
         <div>
                 Appratus
             <div class="magnetsContainer">
-                   <div class="allBars">
+                   <div class="allBars" style="height: 40px;">
                     <img draggable="false" class="ironBar" id="ironRod" style="cursor: move;" src="./images/Ibar.png" onmousedown="onIronBarClick()" >
                     </div>
                     <div>Iron Bar(Unmagnetised)</div>
                            
-                            <div class="allBars">
+                            <div class="allBars" style="height: 50px;">
                             <img draggable="false"  class="items" src="./images/steel.png" alt="" id="steelRod" onmousedown="onSteelBarClick()">
                             </div>
                              <div>Steel Rod (Unmagnetised)</div>
                                     
-                                    <div  class="barDiv">
+                                    <div  class="barDiv allBars" style="height: 86.3px;">
                                     <img  draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
                                     </div>
                                     <div>Bar magnet</div>
+
+                                    <div  class="barDiv allBars" style="height: 86.3px;">
+                                        <img  draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
+                                        </div>
+                                        <div>Bar magnet</div>
+
+                                   
            
-                                            <div class="clipDiv allBars">
+                                            <div class="clipDiv allBars" style="height: 80px;">
                                             <img draggable="false"  class="items" id="Clips" src="./images/clips.gif" alt="">
                                             </div>
                                             <div>Steel Clips</div>
@@ -128,7 +135,6 @@
     var dragvalue, steelDragValue;
     var magnetDragValue, value, barCheck, aBardiv, clippedDiv;
     let divToStoreAnimation, blank1, blank2, adder, clipvalue, NSdiv, N, S, arrowAnimation,divToStoreClip;
-    let toStopBardown= true;
     let Lchoice= 0;
     let Wchoice= 0;
     let trash = false;
@@ -167,7 +173,6 @@
     }
 
    function onIronBarClick(params) {
-    if(toStopBardown){
         ironBar.draggable= true
 
         ironBar.addEventListener('dragstart' , (event)=>{
@@ -182,18 +187,15 @@
             {
             emptySpace.appendChild(ironBar);
             trash= false;
-            toStopBardown= false;
             afterDrag("1");
             console.log("asdsadasdasdsadas");
             }
-        }
     }
     
         
    }
    
    function onSteelBarClick(params) {
-    if(toStopBardown){
         steelBar.draggable= true;
 
         steelBar.addEventListener('dragstart' , (event)=>{
@@ -208,10 +210,8 @@
             {
             emptySpace.appendChild(steelBar);
             trash= false;
-            toStopBardown= false;
             afterDrag("2");
             }
-        }
     }
    
         
@@ -351,8 +351,8 @@
             arrowAnimation.src ='./images/ani.png';
             arrowAnimation.id= "arrownimation";
             arrowAnimation.style.opacity= "0.5"
-            arrowAnimation.style.height= "70px"
-            arrowAnimation.style.width= "70px"
+            arrowAnimation.style.height= "90px"
+            arrowAnimation.style.width= "130px"
 
             
             emptySpace.appendChild(divToStoreAnimation);
