@@ -3,7 +3,6 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 30px;
-    overflow: hidden;
     justify-content: space-between;
     display: flex;
     flex-direction: column;
@@ -111,6 +110,7 @@ a{
     height: 50px;
 }
 #arrowedSteel{
+    z-index: 999;
     height: 70px;
     width: 300px;
 }
@@ -118,7 +118,7 @@ a{
     width: 180px;
     height: 80px;
 }
-.drag{
+.Drag{
     display: flex;
     flex-direction: column;
 }
@@ -129,16 +129,42 @@ a{
     margin: 20px 0 2px 20px ;
     padding: 10px;
     text-align: left;
-    position: relative;
+    height: 200px;
+    width: 60vw;
 }
 
 .emptySpace{
     margin: 5px 0 0 5px;
-    height: 400px;
-    width: 100%;
+    height: 100%;
+    width: 63vw;
     display: flex;
+    border-style: solid;
+    border-radius: 15px;
+    background-color: cadetblue;
     justify-content: center;
     align-items: center;
+}
+#divToStoreClip{
+    position: absolute;
+    right: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 230px;
+    width: 230px;
+    background-color: rgb(223, 205, 183);
+}
+#anotherDivToStoreClip{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-sizing: border-box;
+    height: 250px;
+    width: 250px;
+    margin-right: 20px;
+    background-color: rgb(223, 205, 183);
 }
 .ironBar{
     height: 30px;
@@ -149,6 +175,7 @@ a{
     border-color: black;
 }
 #arrowedBar{
+    z-index: 99;
     height: 70px;
     width: 300px;
 }
@@ -164,14 +191,13 @@ a{
     background-color: lightblue;
     border-radius: 10px;
     padding: 10px;
-    font-size: large;
-    margin:  2px 2px;
+    font-size: 25px;
+    margin:  5px 0 0 10px;
     display: flex;
     flex-direction: column;
-    align-items: left;
     justify-content: center;
-    height: 150px;
-    width: 50vw;
+    height: 34vh;
+    width: 60vw;
 }
 .divToStoreAnimation{
     display: flex;
