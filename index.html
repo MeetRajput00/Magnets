@@ -69,12 +69,12 @@
                                     <div  class="barDiv allBars" style="height: 86.3px;">
                                     <img  draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
                                     </div>
-                                    <div>Bar magnet</div>
+                                    <div>Bar magnet 1</div>
 
                                     <div  class="barDiv allBars" style="height: 86.3px;">
                                         <img  draggable="false"  class="items" src="./images/magnetbar2.png" id="magnetBar2" alt="">
                                         </div>
-                                        <div>Bar magnet</div>
+                                        <div>Bar magnet 2</div>
 
                                    
            
@@ -253,7 +253,7 @@
             emptySpace.appendChild(divToStoreClip);
 
             directionDiv.innerHTML="Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised."
-             document.querySelector('.draggingText').innerHTML="Drag some steel clips near the magnetic material.<br>Move the magnetic material close to the steel clips."
+             document.querySelector('.draggingText').innerHTML="Drag some steel clips near the magnetic material.<br>"
 
             clips.draggable= true;
              clips.addEventListener('dragstart' , (event)=>{
@@ -269,6 +269,7 @@
                     clips.style.position= "absolute"
                     clips.style.right= "40px"
                     trashForClips= false;
+                    document.querySelector('.draggingText').innerHTML="Move the magnetic material close to the steel clips."
                     moveBar();
                     }
                 })
@@ -341,7 +342,7 @@
             
             directionDiv.innerHTML='<p>Good observation! The iron bar has not been magnetised so it cannot attract any steel clips.</p> ';
 
-            draggingText.innerHTML="Drag the bar magnet near the iron bar. <br>Stroke the bar magnet in the same direction and observe the direction of the <br>   ‘tiny magnets’ inside the magnetic material "
+            draggingText.innerHTML="Drag the bar magnet near the iron bar."
 
             emptySpace.removeChild(divToStoreClip);
             clips.style.position= "static";
@@ -408,9 +409,15 @@
                     q= y + "px";
                     magnetBar2DragValue.style.left= p;
                     magnetBar2DragValue.style.top= q;
-                    if(garbageValue){
+                    
+                    if(garbageValue)
+                    {
                         if(bodywidth>1500)
                         {
+                            if (x>500) {
+                                draggingText.innerHTML='<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material '
+                                
+                            }
                             if(x>1000){
                                 garbageValue= false;
 
@@ -476,6 +483,10 @@
                     if(garbageValue){
                         if(bodywidth>1500)
                         {
+                            if (x>500) {
+                                draggingText.innerHTML='<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material '
+                                
+                            }
                             if(x>1000){
                                 garbageValue= false;
 
@@ -527,6 +538,8 @@
 
         }
             function magnetMoving(params) {
+                magnetBar.onmousedown= null;
+                magnetBar2.onmousedown= null;
                 countdown.style.opacity= "0"
                 directionDiv.style.opacity= "1"
                 
@@ -582,7 +595,11 @@
                barDiv= document.querySelector(".barDiv");
                 barDiv.appendChild(magnetBar)
                 
-                draggingText.innerHTML='When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.  Drag and drop the steel clips <br> near the magnetised magnetic material. What will you observe?'
+                draggingText.innerHTML='When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.'
+                setTimeout(() => {
+                    draggingText.innerHTML='Drag and drop the steel clips <br> near the magnetised magnetic material. What will you observe?'
+                }, 3500);
+
                 clips.draggable= true;               
                 clippedDiv= document.createElement('div');
                 clippedDiv.id= "clippedDiv";
@@ -640,7 +657,11 @@
                         clipDiv.appendChild(clips)
                         aBardiv.style.justifyContent= "center"
                         aBardiv.style.alignItems= "center"
-                        draggingText.innerHTML='What will be the poles of the temporary magnet?<br> Drag and drop ‘N’ and ‘S’ to indicate the poles. (Hint: Think about the <br> pole of the ‘tiny magnet’ that is attracted to the  <br> pole of the bar magnet during the stroking process).'
+                        draggingText.innerHTML='What will be the poles of the temporary magnet?'
+                        setTimeout(() => {
+                            draggingText.innerHTML='<br> Drag and drop ‘N’ and ‘S’ to indicate the poles. (Hint: Think about the <br> pole of the ‘tiny magnet’ that is attracted to the  <br> pole of the bar magnet during the stroking process).'
+                            
+                        }, 2500);
                         draggingText.style.backgroundColor= 'lightblue'
                         directionDiv.style.opacity= '0'
                         addingPoles();
@@ -724,7 +745,6 @@
 
                 
                 blank2.ondrop= (event)=>{
-                    console.log(blank1.children.length);                   
                         NSdiv.removeChild(N)
                         blank2.appendChild(N)
                         Wchoice+= 1; 
@@ -755,6 +775,7 @@
                                             NSdiv.removeChild(N)
                                             blank2.appendChild(N)
                                             Lchoice+= 1; 
+                                            console.log(Lchoice);
                                             WrongChoice();                  
                                         
                                         
@@ -799,15 +820,17 @@
                                     NSdiv.removeChild(S)
                                     blank1.appendChild(S)
                                     Lchoice+= 1;
-                                    console.log("AWDadasdasds");
-                                    WrongChoice();                  
+                                    console.log("L choice");
+                                    WrongChoice();    
+                                    console.log("magnet ne S ko blank 1 mai dala");              
                                     
                                 }                
                                 blank2.ondrop= (event)=>{                    
                                     NSdiv.removeChild(S)
                                     blank2.appendChild(S)
                                     Wchoice+=1;
-                                    RightChoice();                
+                                    RightChoice();   
+                                    console.log("magnet ne S ko blank 2 mai dala");             
                                 }
 
                                 }
@@ -820,8 +843,15 @@
                         setTimeout(() => {
                     directionDiv.style.opacity= "1"
                     directionDiv.style.textAlign= "left"
-                    blank1.removeChild(N)
-                    blank2.removeChild(S)
+                    if (toCheckWhichMagnetMoved===true) {
+                        blank1.removeChild(N)
+                        blank2.removeChild(S)    
+                    }
+                    else{
+                        blank1.removeChild(S)
+                        blank2.removeChild(N) 
+                    }
+                    
                     NSdiv.appendChild(N)
                     NSdiv.appendChild(S)
                     directionDiv.innerHTML= "Try Again!! <br> A magnet has two poles, North pole and South pole. <br>Unlike poles of magnets attract each other. <br> Which pole of the ‘tiny magnets’ is attracted to the South of the bar magnet?"
