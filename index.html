@@ -44,7 +44,8 @@
             a.style.display= 'none';
             b.style.display= 'flex';
             c.style.display='none';
-            ">
+            "
+            style="font-weight: 700;">
                 Start
             </button>
         </div>
@@ -54,7 +55,7 @@
     </div>
     <div class="magnetsAndDrag" >
         <div>
-                Appratus
+                Apparatus
             <div class="magnetsContainer">
                    <div class="allBars" style="height: 40px;">
                     <img draggable="false" class="ironBar" id="ironRod" style="cursor: move;" src="./images/Ibar.png" onmousedown="onIronBarClick()" >
@@ -104,7 +105,7 @@
                 <br> 
                 <div style="display: flex; flex-direction: row;">
                 <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()">
-                <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label>
+                <label for= "differentDirection">  The ‘tiny magnets’ are pointing in different directions.</label>
                 </div>
             </div>
         </div>
@@ -634,6 +635,7 @@
                     setTimeout(() => {
                         anotherDivToStoreClip.style.backgroundColor="transparent"
                         anotherDivToStoreClip.style.alignItems= "start"
+                        anotherDivToStoreClip.style.borderStyle="none"
                         clippedDiv.style.justifyContent= "start"
                         setTimeout(() => {
                             afterClipStick();
@@ -883,7 +885,7 @@
                                 resetLink.href= "";
                                 let resetButton= document.createElement('button');
                                 resetButton.id= "resetButton"
-                                resetButton.innerHTML= "Reset Simulation To Try Again";
+                                resetButton.innerHTML= "Repeat the process for Bar magnet 2 and Steel Rod";
                                 console.log(resetButton);
                                 resetLink.append(resetButton)
                                 NSdiv.appendChild(resetLink)
