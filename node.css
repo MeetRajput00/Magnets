@@ -1,302 +1,316 @@
-body{
-    background-color: #a8d08c;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    justify-content: space-between;
-    display: flex;
-    flex-direction: column;
+body {
+  background-color: #a8d08c;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
 }
-a{
-    text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
 }
-.navbar{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    background-color: inherit;
-    align-self: flex-start;
-    width: 100%;
-    height: 20%;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: inherit;
+  align-self: flex-start;
+  width: 100%;
+  height: 20%;
 }
-.bg-music{
-    display: none;
+.bg-music {
+  display: none;
 }
-.navDiv{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: larger;
-    letter-spacing: 1px;
+.navDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: larger;
+  letter-spacing: 1px;
 }
-.navDiv img{
-    padding: 0 3px 0 0;
-    height: 100px;
+.navDiv img {
+  padding: 0 3px 0 0;
+  height: 100px;
 }
-.navDiv button{
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+.navDiv button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
-.albertAndIntro{
-    align-self: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin-top: 12%;
-    width: 80%;
-    height: 75%;
+.albertAndIntro {
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+  width: 80%;
+  height: 75%;
 }
-.albertAndIntro img{
-    height: 400px;
+.albertAndIntro img {
+  height: 400px;
 }
 .intro {
-    margin:  0 0 50px 0;
-    padding: 15px;
-    letter-spacing: 1px;
-    border-radius: 20px;
-    background-color: #fbf3cb;
-    width: 87%;
-    font-size: larger;
+  margin: 0 0 50px 0;
+  padding: 15px;
+  letter-spacing: 1px;
+  border-radius: 20px;
+  background-color: #fbf3cb;
+  width: 87%;
+  font-size: larger;
 }
-.albertAndIntro button{
-    border: none;
-    padding: 20px;
-    border-radius: 10px;
-    letter-spacing: 1px;
-    font-size: 40px;
-    cursor: pointer;
+.albertAndIntro button {
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-size: 40px;
+  cursor: pointer;
 }
-.albertAndIntro :nth-child(2){
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+.albertAndIntro :nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-.magnetsAndDrag{
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    text-align: center;
+.magnetsAndDrag {
+  display: none;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
-.magnetsAndDrag :nth-child(1){
-    display: flex;
-    flex-direction: column;
+.magnetsAndDrag :nth-child(1) {
+  display: flex;
+  flex-direction: column;
 }
-.magnetsContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    width: 25vw;
-    border-radius: 15px;
-    border-style: dotted;
-    background-color: beige;
-    letter-spacing: 1px;
-    font-weight: 600;
+.magnetsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 25vw;
+  border-radius: 15px;
+  border-style: dotted;
+  background-color: beige;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
-.magnetsContainer img{
-    cursor: move;
+.magnetsContainer img {
+  cursor: move;
 }
-#magnetBar{
-    width: 350px;
+#magnetBar {
+  width: 350px;
 }
-#magnetBar2{
-    width: 350px;
+#magnetBar2 {
+  width: 350px;
 }
-#steelRod{
-    width: 280px; 
-    height: 50px;
+#steelRod {
+  width: 280px;
+  height: 50px;
 }
-#arrowedSteel{
-    z-index: 999;
-    height: 70px;
-    width: 300px;
+#arrowedSteel {
+  z-index: 999;
+  height: 70px;
+  width: 300px;
 }
-#Clips{
-    width: 180px;
-    height: 80px;
+#arrowedSteel:hover {
+  cursor: pointer;
 }
-.Drag{
-    display: flex;
-    flex-direction: column;
+#Clips {
+  width: 180px;
+  height: 80px;
 }
-.draggingText{
-    border-style: solid;
-    border-radius: 15px;
-    background-color: beige;
-    margin: 33px 0 2px 20px ;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    height: 150px;
-    width: 60vw;
+.Drag {
+  display: flex;
+  flex-direction: column;
 }
-
-.emptySpace{
-    margin: 5px 0 2px 20px;
-    height: 530px;
-    width: 61vw;
-    display: flex;
-    border-style: solid;
-    border-radius: 15px;
-    background-color: lightpink;
-    justify-content: center;
-    align-items: center;
+.draggingText {
+  border-style: solid;
+  border-radius: 15px;
+  background-color: beige;
+  margin: 33px 0 2px 20px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  height: 150px;
+  width: 60vw;
 }
-.countdown{
+.emptySpace {
+  margin: 5px 0 2px 20px;
+  height: 530px;
+  width: 61vw;
+  display: flex;
+  border-style: solid;
+  border-radius: 15px;
+  background-color: lightpink;
+  justify-content: center;
+  align-items: center;
+}
+.countdownHeading {
     position: absolute;
-    right: 150px;
-    top: 400px;
-    background-color: whitesmoke;
+    right: 250px;
+    top: 380px;
     font-weight: bold;
-    font-size: larger;
-    border-radius: 50%;
-    padding: 15px;
-
+    font-size: xx-large;
+  }
+.countdown {
+  position: absolute;
+  right: 190px;
+  top: 370px;
+  background-color: whitesmoke;
+  font-weight: bold;
+  font-size: larger;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-#divToStoreClip{
-    position: absolute;
-    right: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    height: 230px;
-    width: 230px;
-    border-style: dashed;
-    background-color: beige;
+#divToStoreClip {
+  position: absolute;
+  right: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  height: 230px;
+  width: 230px;
+  border-style: dashed;
+  background-color: beige;
 }
-#anotherDivToStoreClip{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-sizing: border-box;
-    height: 250px;
-    width: 250px;
-    margin-right: 20px;
-    border-style: dashed;
-    background-color: beige;
+#anotherDivToStoreClip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  height: 250px;
+  width: 250px;
+  margin-right: 20px;
+  border-style: dashed;
+  background-color: beige;
 }
-.ironBar{
-    height: 30px;
-    width: 250px;
-    margin: 15px;
-    background-color: gray;
-    border-style: solid;
-    border-color: black;
+.ironBar {
+  height: 30px;
+  width: 250px;
+  margin: 15px;
+  background-color: gray;
+  border-style: solid;
+  border-color: black;
 }
-#arrowedBar{
-    z-index: 99;
-    height: 70px;
-    width: 300px;
+#arrowedBar {
+  z-index: 999;
+  height: 10px;
+  width: 300px;
 }
-.allBars{
-    margin: 15px 0 15px;
+.allBars {
+  margin: 15px 0 15px;
 }
-.credits{
-    position: absolute;
-    bottom: 70px;
-    margin-left: 10px;
+.credits {
+  position: absolute;
+  bottom: 70px;
+  margin-left: 10px;
 }
-.directionDiv{
-    background-color: lightblue;
-    border: groove black;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 25px;
-    margin:  5px 0 2px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 150px;
-    width: 60vw;
+.directionDiv {
+  background-color: lightblue;
+  border: groove black;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 25px;
+  margin: 5px 0 2px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 150px;
+  width: 60vw;
 }
-.divToStoreAnimation{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.divToStoreAnimation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 150px;
 }
-#arrownimation{
-    animation: GFG 4s linear infinite ;
-    position: relative;
-    padding: 10px;
-    height: 50px;
+#arrownimation {
+  animation: GFG 4s linear infinite;
+  position: relative;
+  padding: 10px;
+  height: 50px;
 }
 @keyframes GFG {
-    0% {
-         top: 0;
-         left: -220px;
-     }
-     24%{
-         rotate: 0deg;
-     }
-     25% {
-         left: 250px;
-         top: 0;
-         rotate: -90deg;
-     }
-     49%{
-         rotate: -90deg;
-     }
-     50% {
-         left: 250px;
-         top: -100px;
-         rotate: -180deg;
-     }
-     74%{
-         rotate: -180deg;
-     }
-     75% {
-         left: -220px;
-         top: -100px;
-         rotate: -270deg;
-     }
-     99%{
-         rotate: -270deg;
-     }
-     100% {
-         left: -220px;
-         top: 0;
-         rotate: -360deg;
-     }
-     
- }
+  0% {
+    top: 0;
+    left: -220px;
+  }
+  24% {
+    rotate: 0deg;
+  }
+  25% {
+    left: 250px;
+    top: 0;
+    rotate: -90deg;
+  }
+  49% {
+    rotate: -90deg;
+  }
+  50% {
+    left: 250px;
+    top: -100px;
+    rotate: -180deg;
+  }
+  74% {
+    rotate: -180deg;
+  }
+  75% {
+    left: -220px;
+    top: -100px;
+    rotate: -270deg;
+  }
+  99% {
+    rotate: -270deg;
+  }
+  100% {
+    left: -220px;
+    top: 0;
+    rotate: -360deg;
+  }
+}
+#clippedDiv {
+  display: flex;
+  width: 80%;
+  justify-content: end;
+}
+#aBarDiv {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: end;
+}
 
-#clippedDiv{
-    display: flex;
-    width: 80%;
-    justify-content: end;
+.Blank {
+  margin: 0 30px 0 30px;
+  border-style: dashed;
+  background-color: #fbf3cb;
+  height: 90px;
+  width: 70px;
 }
-#aBarDiv{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: end;
+#NSdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
- 
-.Blank{
-    margin: 0 30px 0 30px;
-    border-style: dashed;
-    background-color: #fbf3cb;
-    height: 90px;
-    width: 70px;
+#resetButton {
+  padding: 25px;
+  background-color: lightblue;
+  font-size: larger;
+  border-radius: 10px;
+  border: none;
 }
-#NSdiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-#resetButton{
-    padding: 25px;
-    background-color: lightblue;
-    font-size: larger;
-    border-radius: 10px;
-    border: none;
+#resetButton:hover{
+    cursor: pointer;
 }
