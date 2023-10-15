@@ -509,6 +509,35 @@
                     arrowedSteel.src= "./animagesforN/9.png";
                    }
                   }
+                  if(barCheck==false){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/2.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/3.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/4.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/5.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/6.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/7.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/8.png";
+                   }
+                  }
                   
                   countdown.innerHTML = timer;
                   if (countdown.innerHTML === "10") {
@@ -550,6 +579,35 @@
                    }else if(timer==8){
                     console.log("pop");
                     arrowedSteel.src= "./animagesforN/9.png";
+                   }
+                  }
+                  if(barCheck==false){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/2.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/3.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/4.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/5.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/6.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/7.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAniforN/8.png";
                    }
                   }
                   countdown.innerHTML = timer;
@@ -645,29 +703,29 @@
                     
                     if(timer==1){
                     console.log("pop");
-                    arrowedSteel.src= "./ironAni/1.png";
+                    arrowedBar.src= "./ironAni/1.png";
                    }
                    else if(timer==2){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/3.png";
+                    arrowedBar.src= "./ironAni/2.png";
                    }else if(timer==3){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/4.png";
+                    arrowedBar.src= "./ironAni/3.png";
                    }else if(timer==4){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/5.png";
+                    arrowedBar.src= "./ironAni/4.png";
                    }else  if(timer==5){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/6.png";
+                    arrowedBar.src= "./ironAni/5.png";
                    }else if(timer==6){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/7.png";
+                    arrowedBar.src= "./ironAni/6.png";
                    }else if(timer==7){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/8.png";
+                    arrowedBar.src= "./ironAni/7.png";
                    }else if(timer==8){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/9.png";
+                    arrowedBar.src= "./ironAni/8.png";
                    }
                   }
                  
@@ -723,25 +781,25 @@
                    }
                    else if(timer==2){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/3.png";
+                    arrowedBar.src= "./ironAni/2.png";
                    }else if(timer==3){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/4.png";
+                    arrowedBar.src= "./ironAni/3.png";
                    }else if(timer==4){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/5.png";
+                    arrowedBar.src= "./ironAni/4.png";
                    }else  if(timer==5){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/6.png";
+                    arrowedBar.src= "./ironAni/5.png";
                    }else if(timer==6){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/7.png";
+                    arrowedBar.src= "./ironAni/6.png";
                    }else if(timer==7){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/8.png";
+                    arrowedBar.src= "./ironAni/7.png";
                    }else if(timer==8){
                     console.log("pop");
-                    arrowedBar.src= "./ironAni/9.png";
+                    arrowedBar.src= "./ironAni/8.png";
                    }
                   }
                  
@@ -1079,8 +1137,9 @@
       }
     }
     function RightChoice(params) {
-      emptySpace.appendChild(arrowAnimation)
+      
       if (Wchoice === 2) {
+        emptySpace.removeChild(arrowAnimation)
         setTimeout(() => {
           directionDiv.style.opacity = "1";
           directionDiv.style.textAlign = "left";
