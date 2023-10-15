@@ -106,6 +106,7 @@ a {
   width: 350px;
 }
 #magnetBar2 {
+  z-index: 9999;
   width: 350px;
 }
 #steelRod {
@@ -206,7 +207,6 @@ a {
 }
 #arrowedBar {
   z-index: 999;
-  height: 10px;
   width: 300px;
 }
 .allBars {

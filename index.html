@@ -293,14 +293,12 @@
         emptySpace.appendChild(arrowedBar);
         barCheck = false;
         steelBar.onmousedown = null;
-        console.log(steelBar);
       }
       if (bar === "2") {
         emptySpace.removeChild(steelBar);
         emptySpace.appendChild(arrowedSteel);
         barCheck = true;
         ironBar.onmousedown = null;
-        console.log(ironBar);
       }
     }
 
@@ -365,7 +363,6 @@
         arrowedSteel.draggable = false;
         arrowedSteel.style.position = "absolute";
         arrowedSteel.onmousedown = () => {
-          console.log("asdasd");
           steelDragValue = arrowedSteel;
           move();
         };
@@ -380,14 +377,12 @@
           };
           arrowedSteel.onmouseup = (e) => {
             document.onmousemove = null;
-            console.log("asdksakdhsaudgysadhuashdusahdusabdsa");
             afterMove();
           };
         }
       }
     }
     function afterMove() {
-      console.log("preetetetetette");
       arrowedSteel.onmouseup = null;
       directionDiv.innerHTML =
         '<div style="text-align: left;"><p>Click the correct observation.</p></div> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label> </div>';
@@ -448,6 +443,7 @@
         magnetBar2DragValue = magnetBar2;
         magnet2Move();
       };
+
       function magnet2Move(params) {
         toCheckWhichMagnetMoved = false;
         var increaseScore = true;
@@ -462,16 +458,16 @@
           var bY =
             arrowedSteel.y > arrowedBar.y ? arrowedSteel.y : arrowedBar.y;
           
-          console.log(
-            "x: " +
-              x +
-              "y: " +
-              y +
-              "bX: " +
-              bX +
-              "bY: " +
-              bY
-          );
+          // console.log(
+          //   "x: " +
+          //     x +
+          //     "y: " +
+          //     y +
+          //     "bX: " +
+          //     bX +
+          //     "bY: " +
+          //     bY
+          // );
           magnetBar2DragValue.style.left = p;
           magnetBar2DragValue.style.top = q;
           if (garbageValue) {
@@ -484,9 +480,39 @@
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
+                  if(barCheck==true){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/3.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/4.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/5.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/6.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/7.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/8.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/9.png";
+                   }
+                  }
+                  
                   countdown.innerHTML = timer;
                   if (countdown.innerHTML === "10") {
-                    magnetMoving();
+                    magnetMoving("2");
                   }
                 }
               } else {
@@ -497,9 +523,38 @@
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
+                  if(barCheck==true){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/3.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/4.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/5.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/6.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/7.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/8.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedSteel.src= "./animagesforN/9.png";
+                   }
+                  }
                   countdown.innerHTML = timer;
                   if (countdown.innerHTML === "10") {
-                    magnetMoving();
+                    magnetMoving("2");
                   }
                 }
               } else {
@@ -533,16 +588,16 @@
           var bY =
             arrowedSteel.y > arrowedBar.y ? arrowedSteel.y : arrowedBar.y;
 
-          console.log(
-            "x: " +
-              x +
-              "y: " +
-              y +
-              "bX: " +
-              bX +
-              "bY: " +
-              bY 
-          );
+          // console.log(
+          //   "x: " +
+          //     x +
+          //     "y: " +
+          //     y +
+          //     "bX: " +
+          //     bX +
+          //     "bY: " +
+          //     bY 
+          // );
           magnetDragValue.style.left = p;
           magnetDragValue.style.top = q;
           if (garbageValue) {
@@ -556,11 +611,72 @@
                   increaseScore = false;
                   timer += 1;
                   countdown.innerHTML = timer;
+                  console.log(timer);
+                  if(barCheck==true){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/3.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/4.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/5.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/6.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/7.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/8.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/9.png";
+                   }
+                  }
+                  if(barCheck==false){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedSteel.src= "./ironAni/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/3.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/4.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/5.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/6.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/7.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/8.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/9.png";
+                   }
+                  }
+                 
                   if (countdown.innerHTML === "10") {
-                    magnetMoving();
+                    magnetMoving("1");
                   }
                 }
               } else if(x<bX && y<bY){
+                
                 increaseScore = true;
               }
             } else {
@@ -569,8 +685,69 @@
                   increaseScore = false;
                   timer += 1;
                   countdown.innerHTML = timer;
+                  console.log(timer);
+                  if(barCheck==true){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/3.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/4.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/5.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/6.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/7.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/8.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedSteel.src= "./animages/9.png";
+                   }
+                  }
+                  if(barCheck==false){
+                    
+                    if(timer==1){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/1.png";
+                   }
+                   else if(timer==2){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/3.png";
+                   }else if(timer==3){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/4.png";
+                   }else if(timer==4){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/5.png";
+                   }else  if(timer==5){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/6.png";
+                   }else if(timer==6){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/7.png";
+                   }else if(timer==7){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/8.png";
+                   }else if(timer==8){
+                    console.log("pop");
+                    arrowedBar.src= "./ironAni/9.png";
+                   }
+                  }
+                 
+                   
                   if (countdown.innerHTML === "10") {
-                    magnetMoving();
+                    magnetMoving("1");
                   }
                 }
               } else {
@@ -584,19 +761,30 @@
         };
       }
     }
-    function magnetMoving(params) {
+    function magnetMoving(whichMagnet){
       magnetBar.onmousedown = null;
       magnetBar2.onmousedown = null;
       countdownHeading.style.opacity = "0";
       countdown.style.opacity = "0";
       directionDiv.style.opacity = "1";
 
-      if (barCheck === false) {
-        arrowedBar.src = "./images/sameDirection.png";
-      }
-      if (barCheck === true) {
-        arrowedSteel.src = "./images/steelSame.png";
-      }
+      if (whichMagnet==="2") {
+                    if(barCheck===false){
+                    arrowedBar.src= "./images/ironLeftDir.png"
+                    }
+                    if(barCheck===true){
+                        arrowedSteel.src= "./images/leftdir.png"
+                    }
+                }
+                if (whichMagnet==="1") {
+                    if(barCheck===false){
+                    arrowedBar.src= "./images/sameDirection.png"
+                }
+                    if(barCheck===true){
+                        arrowedSteel.src= "./images/steelSame.png"
+                    }
+                }
+                
       directionDiv.style.backgroundColor = "lightblue";
       directionDiv.style.position = "static";
       directionDiv.style.display = "flex";
@@ -629,6 +817,8 @@
         arrowedBar.style.position = "static";
         aBardiv.style.justifyContent = "center";
         aBardiv.appendChild(arrowedBar);
+        emptySpace.appendChild(arrowAnimation);
+        arrowAnimation.style.opacity= 0;
         emptySpace.appendChild(aBardiv);
       } else {
         aBardiv = document.createElement("div");
@@ -636,6 +826,8 @@
         arrowedSteel.style.position = "static";
         aBardiv.style.justifyContent = "center";
         aBardiv.appendChild(arrowedSteel);
+        emptySpace.appendChild(arrowAnimation);
+        arrowAnimation.style.opacity= 0;
         emptySpace.appendChild(aBardiv);
       }
 
@@ -729,11 +921,15 @@
       blank2.classList.add("Blank");
       if (barCheck === false) {
         aBardiv.removeChild(arrowedBar);
+      arrowAnimation.src = "./images/ani.png";
+        arrowAnimation.style.opacity= 0.5;
         aBardiv.appendChild(blank1);
         aBardiv.appendChild(arrowedBar);
         aBardiv.appendChild(blank2);
       } else {
         aBardiv.removeChild(arrowedSteel);
+      arrowAnimation.src = "./images/aniwithSecondPole.png";
+        arrowAnimation.style.opacity= 0.5;
         aBardiv.appendChild(blank1);
         aBardiv.appendChild(arrowedSteel);
         aBardiv.appendChild(blank2);
@@ -760,10 +956,7 @@
     function draggingNorS() {
       Lchoice = 0;
       Wchoice = 0;
-      console.log(Wchoice);
-      console.log(Lchoice);
-      console.log(blank1.children);
-      console.log(blank1.children.length);
+     
       N.ondrag = (event) => {
         event.preventDefault();
         draggedN();
@@ -812,11 +1005,9 @@
         };
 
         blank2.ondrop = (event) => {
-          console.log(blank1.children.length);
           NSdiv.removeChild(N);
           blank2.appendChild(N);
           Lchoice += 1;
-          console.log(Lchoice);
           WrongChoice();
         };
       }
@@ -834,7 +1025,6 @@
           NSdiv.removeChild(S);
           blank1.appendChild(S);
           Wchoice += 1;
-          console.log("AWDadasdasds");
           RightChoice();
         };
         blank2.ondrop = (event) => {
@@ -855,23 +1045,18 @@
           NSdiv.removeChild(S);
           blank1.appendChild(S);
           Lchoice += 1;
-          console.log("L choice");
           WrongChoice();
-          console.log("magnet ne S ko blank 1 mai dala");
         };
         blank2.ondrop = (event) => {
           NSdiv.removeChild(S);
           blank2.appendChild(S);
           Wchoice += 1;
           RightChoice();
-          console.log("magnet ne S ko blank 2 mai dala");
         };
       }
     }
     function WrongChoice(params) {
-      console.log("entered");
       if (Lchoice === 2) {
-        console.log("hmmm");
         setTimeout(() => {
           directionDiv.style.opacity = "1";
           directionDiv.style.textAlign = "left";
@@ -888,16 +1073,14 @@
           directionDiv.innerHTML =
             "Try Again!! <br> A magnet has two poles, North pole and South pole. <br>Unlike poles of magnets attract each other. <br> Which pole of the ‘tiny magnets’ is attracted to the South of the bar magnet?";
           blank1.addEventListener("drop", (e) => {
-            console.log("pteet");
           });
           draggingNorS();
         }, 1000);
       }
     }
     function RightChoice(params) {
-      console.log("entered");
+      emptySpace.appendChild(arrowAnimation)
       if (Wchoice === 2) {
-        console.log("hmmm");
         setTimeout(() => {
           directionDiv.style.opacity = "1";
           directionDiv.style.textAlign = "left";
@@ -913,13 +1096,11 @@
             directionDiv.style.opacity = "0";
             emptySpace.removeChild(aBardiv);
             let resetLink = document.createElement("a");
-            console.log(resetLink);
             resetLink.href = "";
             let resetButton = document.createElement("button");
             resetButton.id = "resetButton";
             resetButton.innerHTML =
-              "Repeat the process for Bar magnet 2 and Steel Rod";
-            console.log(resetButton);
+              "Repeat the process with another Bar magnet";
             resetLink.append(resetButton);
             NSdiv.appendChild(resetLink);
           }, 2000);
