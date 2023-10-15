@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="node.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+    <link rel="stylesheet" href="node.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="">
-            <div class="home navDiv">
-                <img  src="./images/home-button.png" alt="">
-                  &nbsp; Back To The Start
-            </div>
-        </a>
-        <div class="audioInstructions navDiv">
-            Audio Instructions
-            <img  src="./images/voice-message.png" alt="">
-            <button onclick="onButtonChange()">
-                <img src="./images/switch-on.png" alt="" class="switch-on-off-icon">
-            </button>
+      <a href="">
+        <div class="home navDiv">
+          <img src="./images/home-button.png" alt="" />
+          &nbsp; Back To The Start
         </div>
-        <div class="backgroundInstructions navDiv">
-            Background Music 
-            <img height="90px" src="./images/musical-note.png" alt="">
-            <button onclick="btnForBgMusic()">
-                <img height="100px" src="./images/switch-on.png" alt="" class="second-switch-on-off-icon">
-            </button>
-        </div>
+      </a>
+      <div class="audioInstructions navDiv">
+        Audio Instructions
+        <img src="./images/voice-message.png" alt="" />
+        <button onclick="onButtonChange()">
+          <img src="./images/switch-on.png" alt="" class="switch-on-off-icon" />
+        </button>
+      </div>
+      <div class="backgroundInstructions navDiv">
+        Background Music
+        <img height="90px" src="./images/musical-note.png" alt="" />
+        <button onclick="btnForBgMusic()">
+          <img
+            height="100px"
+            src="./images/switch-on.png"
+            alt=""
+            class="second-switch-on-off-icon"
+          />
+        </button>
+      </div>
     </nav>
 
     <div class="albertAndIntro">
-        <img src="./images/albert.png" alt="">
-        <div class="text-container">
-            <div class="intro">
-                In this simulation, you will explore how a magnetic material can be made into a temporary magnet using the Stroke method.
-            </div>
-            <button onclick="                    
+      <img src="./images/albert.png" alt="" />
+      <div class="text-container">
+        <div class="intro">
+          In this simulation, you will explore how a magnetic material can be
+          made into a temporary magnet using the Stroke method.
+        </div>
+        <button
+          onclick="                    
             let a = document.querySelector('.albertAndIntro');
             let b=  document.querySelector('.magnetsAndDrag');
             let c=document.querySelector('.credits')
@@ -45,853 +52,879 @@
             b.style.display= 'flex';
             c.style.display='none';
             "
-            style="font-weight: 700;">
-                Start
-            </button>
-        </div>
+          style="font-weight: 700"
+        >
+          Start
+        </button>
+      </div>
     </div>
-    <div class="credits">This free simulation is conceptualised by Andrielle Lee, and developed by Meet Rajput.<br>
-            Music Credit: Oleg Mazur
+    <div class="credits">
+      This free simulation is conceptualised by Andrielle Lee, and developed by
+      Meet Rajput.<br />
+      Music Credit: Oleg Mazur
     </div>
-    <div class="magnetsAndDrag" >
-        <div>
-                Apparatus
-            <div class="magnetsContainer">
-                   <div class="allBars" style="height: 40px;">
-                    <img draggable="false" class="ironBar" id="ironRod" style="cursor: move;" src="./images/Ibar.png" onmousedown="onIronBarClick()" >
-                    </div>
-                    <div>Iron Bar(Unmagnetised)</div>
-                           
-                            <div class="allBars" style="height: 50px;">
-                            <img draggable="false"  class="items" src="./images/steel.png" alt="" id="steelRod" onmousedown="onSteelBarClick()">
-                            </div>
-                             <div>Steel Rod (Unmagnetised)</div>
-                                    
-                                    <div  class="barDiv allBars" style="height: 86.3px;">
-                                    <img  draggable="false"  class="items" src="./images/bar.png" id="magnetBar" alt="">
-                                    </div>
-                                    <div>Bar magnet 1</div>
+    <div class="magnetsAndDrag">
+      <div>
+        Apparatus
+        <div class="magnetsContainer">
+          <div class="allBars" style="height: 40px">
+            <img
+              draggable="false"
+              class="ironBar"
+              id="ironRod"
+              style="cursor: move"
+              src="./images/Ibar.png"
+              onmousedown="onIronBarClick()"
+            />
+          </div>
+          <div>Iron Bar(Unmagnetised)</div>
 
-                                    <div  class="barDiv allBars" style="height: 86.3px;">
-                                        <img  draggable="false"  class="items" src="./images/magnetbar2.png" id="magnetBar2" alt="">
-                                        </div>
-                                        <div>Bar magnet 2</div>
+          <div class="allBars" style="height: 50px">
+            <img
+              draggable="false"
+              class="items"
+              src="./images/steel.png"
+              alt=""
+              id="steelRod"
+              onmousedown="onSteelBarClick()"
+            />
+          </div>
+          <div>Steel Rod (Unmagnetised)</div>
 
-                                   
-           
-                                            <div class="clipDiv allBars" style="height: 80px;">
-                                            <img draggable="false"  class="items" id="Clips" src="./images/clips.gif" alt="">
-                                            </div>
-                                            <div>Steel Clips</div>
-            </div>
+          <div class="barDiv allBars" style="height: 86.3px">
+            <img
+              draggable="false"
+              class="items"
+              src="./images/bar.png"
+              id="magnetBar"
+              alt=""
+            />
+          </div>
+          <div>Bar magnet 1</div>
+
+          <div class="barDiv allBars" style="height: 86.3px">
+            <img
+              draggable="false"
+              class="items"
+              src="./images/magnetbar2.png"
+              id="magnetBar2"
+              alt=""
+            />
+          </div>
+          <div>Bar magnet 2</div>
+
+          <div class="clipDiv allBars" style="height: 80px">
+            <img
+              draggable="false"
+              class="items"
+              id="Clips"
+              src="./images/clips.gif"
+              alt=""
+            />
+          </div>
+          <div>Steel Clips</div>
         </div>
+      </div>
 
-        <div class="Drag">
+      <div class="Drag">
         <div class="draggingText">
-                Drag and drop a magnetic material into the empty space shown.
+          Drag and drop a magnetic material into the empty space shown.
         </div>
-            <div class="emptySpace">
-
-                    <div class="countdown">0</div>
-                    
-            </div>
-            <div class="directionDiv" style="background-color: transparent; opacity: 0;">
-                <div style="text-align: left;">Click the correct observation.</div>
-                <br>
-                <div style="display: flex; flex-direction: row;">
-                <input type="radio" name="Direction" id="sameDirection" onchange="directionWrongAnswer()">
-                <label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> 
-                </div>
-                <br> 
-                <div style="display: flex; flex-direction: row;">
-                <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()">
-                <label for= "differentDirection">  The ‘tiny magnets’ are pointing in different directions.</label>
-                </div>
-            </div>
+        <div class="emptySpace">
+          <div class="countdownHeading">Number of strokes:</div>
+          <div class="countdown">0</div>
         </div>
+        <div
+          class="directionDiv"
+          style="background-color: transparent; opacity: 0"
+        >
+          <div style="text-align: left">Click the correct observation.</div>
+          <br />
+          <div style="display: flex; flex-direction: row">
+            <input
+              type="radio"
+              name="Direction"
+              id="sameDirection"
+              onchange="directionWrongAnswer()"
+            />
+            <label for="sameDirection">
+              The ‘tiny magnets’ are pointing in the same direction.</label
+            >
+          </div>
+          <br />
+          <div style="display: flex; flex-direction: row">
+            <input
+              type="radio"
+              name="Direction"
+              id="differentDirection"
+              onchange="directionRightAnswer()"
+            />
+            <label for="differentDirection">
+              The ‘tiny magnets’ are pointing in different directions.</label
+            >
+          </div>
+        </div>
+      </div>
     </div>
 
     <audio controls src="./images/bgMusic.mp3" class="bg-music"></audio>
-
-</body>
-<script>
-   
-    let emptySpace= document.querySelector('.emptySpace');
-    let backgroundMusic= document.querySelector(".bg-music");
-    let ironBar= document.querySelector(".ironBar");
-    let steelBar= document.querySelector("#steelRod")
-    let clips= document.querySelector("#Clips");
-    let items= document.querySelectorAll(".items");
-    let arrowedBar= document.createElement('img');
-    arrowedBar.src= "./images/arrowed.png";
-    arrowedBar.id= "arrowedBar"
-    let magnetBar2= document.querySelector("#magnetBar2");
-    let arrowedSteel= document.createElement('img');
-    arrowedSteel.src= "./images/steelbarArrowed.png";
-    arrowedSteel.id= "arrowedSteel"
-    let directionDiv= document.querySelector('.directionDiv');
-    let clipDiv= document.querySelector(".clipDiv");
-    let magnetBar= document.querySelector("#magnetBar");
-    let draggingText= document.querySelector(".draggingText");
-    let countdown= document.querySelector('.countdown');
-    countdown.style.opacity= "0";
-    let timer=0;
-    let a =false;
-    let c= false;
+  </body>
+  <script>
+    let emptySpace = document.querySelector(".emptySpace");
+    let backgroundMusic = document.querySelector(".bg-music");
+    let ironBar = document.querySelector(".ironBar");
+    let steelBar = document.querySelector("#steelRod");
+    let clips = document.querySelector("#Clips");
+    let items = document.querySelectorAll(".items");
+    let arrowedBar = document.createElement("img");
+    arrowedBar.src = "./images/arrowed.png";
+    arrowedBar.id = "arrowedBar";
+    let magnetBar2 = document.querySelector("#magnetBar2");
+    let arrowedSteel = document.createElement("img");
+    arrowedSteel.src = "./images/steelbarArrowed.png";
+    arrowedSteel.id = "arrowedSteel";
+    let directionDiv = document.querySelector(".directionDiv");
+    let clipDiv = document.querySelector(".clipDiv");
+    let magnetBar = document.querySelector("#magnetBar");
+    let draggingText = document.querySelector(".draggingText");
+    let countdown = document.querySelector(".countdown");
+    let countdownHeading = document.querySelector(".countdownHeading");
+    countdown.style.opacity = "0";
+    countdownHeading.style.opacity = "0";
+    let timer = 0;
+    let a = false;
+    let c = false;
     var dragvalue, steelDragValue;
-    var magnetDragValue, value, barCheck, aBardiv, clippedDiv, magnetBar2DragValue;
-    let divToStoreAnimation, blank1, blank2, adder, clipvalue, NSdiv, N, S, arrowAnimation,divToStoreClip, toCheckWhichMagnetMoved;
-    let Lchoice= 0;
-    let Wchoice= 0;
+    var magnetDragValue,
+      value,
+      barCheck,
+      aBardiv,
+      clippedDiv,
+      magnetBar2DragValue;
+    let divToStoreAnimation,
+      blank1,
+      blank2,
+      adder,
+      clipvalue,
+      NSdiv,
+      N,
+      S,
+      arrowAnimation,
+      divToStoreClip,
+      toCheckWhichMagnetMoved;
+    let Lchoice = 0;
+    let Wchoice = 0;
     let trash = false;
     var trashForClips;
-    var garbageValue= true;
-    var bodywidth=document.body.clientWidth;
+    var garbageValue = true;
+    var bodywidth = document.body.clientWidth;
+    function sleep(miliseconds) {
+      var currentTime = new Date().getTime();
 
-
-
+      while (currentTime + miliseconds >= new Date().getTime()) {}
+    }
     function onButtonChange(params) {
-        let switchOnIcon=document.querySelector('.switch-on-off-icon')
-            if(a)
-            {
-                switchOnIcon.src='./images/switch-on.png';
-                a=false;
-            }
-            else 
-            {
-            switchOnIcon.src='./images/switch-off.png'
-            a= true;
-            }
+      let switchOnIcon = document.querySelector(".switch-on-off-icon");
+      if (a) {
+        switchOnIcon.src = "./images/switch-on.png";
+        a = false;
+      } else {
+        switchOnIcon.src = "./images/switch-off.png";
+        a = true;
+      }
     }
     function btnForBgMusic(params) {
-        let switchOnIcon=document.querySelector('.second-switch-on-off-icon')
-            if(c)
-            {
-                switchOnIcon.src='./images/switch-on.png';
-                backgroundMusic.pause();
-                c=false;
-            }
-            else 
-            {
-            switchOnIcon.src='./images/switch-off.png'
-            backgroundMusic.play()
-            c= true;
-            }
+      let switchOnIcon = document.querySelector(".second-switch-on-off-icon");
+      if (c) {
+        switchOnIcon.src = "./images/switch-on.png";
+        backgroundMusic.pause();
+        c = false;
+      } else {
+        switchOnIcon.src = "./images/switch-off.png";
+        backgroundMusic.play();
+        c = true;
+      }
     }
 
-   function onIronBarClick(params) {
-        ironBar.draggable= true
+    function onIronBarClick(params) {
+      ironBar.draggable = true;
 
-        ironBar.addEventListener('dragstart' , (event)=>{
-                trash= true
-            })
+      ironBar.addEventListener("dragstart", (event) => {
+        trash = true;
+      });
 
-        emptySpace.addEventListener('dragover', (event)=>{
-            event.preventDefault();
-        })
-        emptySpace.ondrop= ()=>{
-            if(trash)
-            {
-            emptySpace.appendChild(ironBar);
-            trash= false;
-            afterDrag("1");
-            console.log("asdsadasdasdsadas");
-            }
+      emptySpace.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+      emptySpace.ondrop = () => {
+        if (trash) {
+          emptySpace.appendChild(ironBar);
+          trash = false;
+          afterDrag("1");
+          console.log("asdsadasdasdsadas");
+        }
+      };
     }
-    
-        
-   }
-   
-   function onSteelBarClick(params) {
-        steelBar.draggable= true;
 
-        steelBar.addEventListener('dragstart' , (event)=>{
-                trash= true
-            })
-
-        emptySpace.addEventListener('dragover', (event)=>{
-            event.preventDefault();
-        })
-        emptySpace.ondrop= ()=>{
-            if(trash)
-            {
-            emptySpace.appendChild(steelBar);
-            trash= false;
-            afterDrag("2");
-            }
+    function onSteelBarClick(params) {
+      steelBar.draggable = true;
+      steelBar.addEventListener("dragstart", (event) => {
+        trash = true;
+      });
+      emptySpace.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+      emptySpace.ondrop = () => {
+        if (trash) {
+          emptySpace.appendChild(steelBar);
+          trash = false;
+          afterDrag("2");
+        }
+      };
     }
-   
-        
-   }
 
-    
+    function afterDrag(bar) {
+      directionDiv.style.backgroundColor = "lightblue";
+      directionDiv.style.opacity = "1";
+      draggingText.innerHTML =
+        "Observe the directions of the arrows inside the unmagnetised magnetic material.<br> These arrows represent the magnetic domains or ‘tiny magnets’.";
+      if (bar === "1") {
+        emptySpace.removeChild(ironBar);
+        emptySpace.appendChild(arrowedBar);
+        barCheck = false;
+        steelBar.onmousedown = null;
+        console.log(steelBar);
+      }
+      if (bar === "2") {
+        emptySpace.removeChild(steelBar);
+        emptySpace.appendChild(arrowedSteel);
+        barCheck = true;
+        ironBar.onmousedown = null;
+        console.log(ironBar);
+      }
+    }
 
-    function afterDrag(bar){
-        directionDiv.style.backgroundColor= "lightblue";
-        directionDiv.style.opacity= "1"
-        draggingText.innerHTML="Observe the directions of the arrows inside the unmagnetised magnetic material.<br> These arrows represent the magnetic domains or ‘tiny magnets’.";  
-        if(bar==="1"){
-             emptySpace.removeChild(ironBar);
-             emptySpace.appendChild(arrowedBar);
-             barCheck= false
-             steelBar.onmousedown= null
-             console.log(steelBar);
+    function directionRightAnswer() {
+      divToStoreClip = document.createElement("div");
+      divToStoreClip.id = "divToStoreClip";
+      emptySpace.appendChild(divToStoreClip);
+
+      directionDiv.innerHTML =
+        "Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised.";
+      document.querySelector(".draggingText").innerHTML =
+        "Drag some steel clips into the dotted circle shown.<br>";
+
+      clips.draggable = true;
+      clips.addEventListener("dragstart", (event) => {
+        trashForClips = true;
+      });
+      divToStoreClip.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+      divToStoreClip.addEventListener("drop", (event) => {
+        if (trashForClips) {
+          divToStoreClip.appendChild(clips);
+          clips.style.position = "absolute";
+          clips.style.right = "40px";
+          trashForClips = false;
+          document.querySelector(".draggingText").innerHTML =
+            "Move the magnetic material close to the steel clips.";
+          moveBar();
         }
-        if(bar==="2"){
-            emptySpace.removeChild(steelBar);
-            emptySpace.appendChild(arrowedSteel);
-            barCheck= true;
-            ironBar.onmousedown= null
-            console.log(ironBar);
-        }
-       
-        }
-    
-        function directionRightAnswer(){
+      });
+    }
+    function directionWrongAnswer() {
+      directionDiv.innerHTML =
+        '<div style="text-align: left;">Try again! Study the directions of the arrows shown.</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="directionWrongAnswer()"><label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()"> <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label> </div>';
+    }
 
-             divToStoreClip= document.createElement("div");
-            divToStoreClip.id= "divToStoreClip"
-            emptySpace.appendChild(divToStoreClip);
-
-            directionDiv.innerHTML="Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised."
-             document.querySelector('.draggingText').innerHTML="Drag some steel clips near the magnetic material.<br>"
-
-            clips.draggable= true;
-             clips.addEventListener('dragstart' , (event)=>{
-                trashForClips= true
-                })
-              divToStoreClip.addEventListener('dragover', (event)=>{
-                    event.preventDefault();
-                })
-                divToStoreClip.addEventListener('drop', (event)=>{
-                    if(trashForClips)
-                    {
-                    divToStoreClip.appendChild(clips);
-                    clips.style.position= "absolute"
-                    clips.style.right= "40px"
-                    trashForClips= false;
-                    document.querySelector('.draggingText').innerHTML="Move the magnetic material close to the steel clips."
-                    moveBar();
-                    }
-                })
-                
-               
+    function moveBar() {
+      if (barCheck === false) {
+        arrowedBar.draggable = false;
+        arrowedBar.style.position = "absolute";
+        arrowedBar.onmousedown = () => {
+          dragvalue = arrowedBar;
+          move();
+        };
+        function move(params) {
+          document.onmousemove = (e) => {
+            var x = e.pageX;
+            var y = e.pageY;
+            var p = x + "px";
+            var q = y + "px";
+            dragvalue.style.left = p;
+            dragvalue.style.top = q;
+          };
+          arrowedBar.onmouseup = (e) => {
+            document.onmousemove = null;
+            afterMove();
+          };
         }
-        function directionWrongAnswer() {
-            
-            directionDiv.innerHTML='<div style="text-align: left;">Try again! Study the directions of the arrows shown.</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="directionWrongAnswer()"><label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()"> <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label> </div>';
+      }
+      if (barCheck) {
+        arrowedSteel.draggable = false;
+        arrowedSteel.style.position = "absolute";
+        arrowedSteel.onmousedown = () => {
+          console.log("asdasd");
+          steelDragValue = arrowedSteel;
+          move();
+        };
+        function move(params) {
+          document.onmousemove = (e) => {
+            var x = e.pageX;
+            var y = e.pageY;
+            var p = x + "px";
+            var q = y + "px";
+            steelDragValue.style.left = p;
+            steelDragValue.style.top = q;
+          };
+          arrowedSteel.onmouseup = (e) => {
+            document.onmousemove = null;
+            console.log("asdksakdhsaudgysadhuashdusahdusabdsa");
+            afterMove();
+          };
         }
-    
+      }
+    }
+    function afterMove() {
+      console.log("preetetetetette");
+      arrowedSteel.onmouseup = null;
+      directionDiv.innerHTML =
+        '<div style="text-align: left;"><p>Click the correct observation.</p></div> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label> </div>';
+    }
+    function attractionRightAnswer() {
+      directionDiv.innerHTML =
+        "<p>Good observation! The iron bar has not been magnetised so it cannot attract any steel clips.</p> ";
 
-        function moveBar() {
-            if(barCheck===false){
-                arrowedBar.draggable= false;
-                arrowedBar.style.position= "absolute";
-                arrowedBar.onmousedown= ()=>{
-                dragvalue= arrowedBar;
-                move();
-                
-            }
-            function move(params) {
-                document.onmousemove= (e)=>{
-                    var x= e.pageX;
-                    var y= e.pageY;
-                    var p= x + "px";
-                    var q= y + "px";
-                    dragvalue.style.left= p;
-                    dragvalue.style.top= q;
-                    
-            }
-            arrowedBar.onmouseup= (e)=>{
-                document.onmousemove= null;
-                afterMove();
-            }
-            }
-            }
-            if(barCheck){
-                arrowedSteel.draggable= false;
-            arrowedSteel.style.position= "absolute";
-            arrowedSteel.onmousedown= ()=>{
-                console.log("asdasd");
-                steelDragValue= arrowedSteel;
-                move();
-                
-            }
-            function move(params) {
-                document.onmousemove= (e)=>{
-                    var x= e.pageX;
-                    var y= e.pageY;
-                    var p= x + "px";
-                    var q= y + "px";
-                    steelDragValue.style.left= p;
-                    steelDragValue.style.top= q;                    
-            }
-            arrowedSteel.onmouseup= (e)=>{
-                document.onmousemove= null;
-                console.log("asdksakdhsaudgysadhuashdusahdusabdsa");
-                afterMove();
-            }
-            }
-            }
-        }
-        function afterMove() {
-            console.log("preetetetetette");
-            arrowedSteel.onmouseup= null;
-            directionDiv.innerHTML='<div style="text-align: left;"><p>Click the correct observation.</p></div> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label> </div>';
-        }
-        function attractionRightAnswer(){
-            
-            directionDiv.innerHTML='<p>Good observation! The iron bar has not been magnetised so it cannot attract any steel clips.</p> ';
+      draggingText.innerHTML =
+        "Drag the bar magnet near the magnetic material and stroke it in the direction shown by the animation.";
 
-            draggingText.innerHTML="Drag the bar magnet near the iron bar."
+      emptySpace.removeChild(divToStoreClip);
+      clips.style.position = "static";
+      clips.style.draggable = false;
+      clipDiv.appendChild(clips);
+      divToStoreAnimation = document.createElement("div");
+      divToStoreAnimation.className = "divToStoreAnimation";
+      divToStoreAnimation.style.display = "flex";
+      divToStoreAnimation.style.flexDirection = "column";
 
-            emptySpace.removeChild(divToStoreClip);
-            clips.style.position= "static";
-            clips.style.draggable= false;
-            clipDiv.appendChild(clips);
-            divToStoreAnimation= document.createElement('div');
-            divToStoreAnimation.className= "divToStoreAnimation"
-            divToStoreAnimation.style.display= "flex";
-            divToStoreAnimation.style.flexDirection= "column";
+      arrowAnimation = document.createElement("img");
+      arrowAnimation.src = "./images/ani.png";
+      arrowAnimation.id = "arrownimation";
+      arrowAnimation.style.opacity = "0.5";
+      arrowAnimation.style.height = "90px";
+      arrowAnimation.style.width = "130px";
+
+      emptySpace.appendChild(divToStoreAnimation);
+      if (barCheck === false) {
+        arrowedBar.onmousedown = null;
+        arrowedBar.style.top = "567px";
+        arrowedBar.style.left = "1023px";
+        divToStoreAnimation.appendChild(arrowAnimation);
+      } else {
+        arrowedSteel.onmousedown = null;
+        arrowedSteel.style.top = "567px";
+        arrowedSteel.style.left = "1023px";
+        divToStoreAnimation.appendChild(arrowAnimation);
+      }
+
+      clips.draggable = false;
+      moveMagnet();
+    }
+    function removePxAndParse(value) {
+      return value;
+    }
+    function attractionWrongAnswer() {
+      directionDiv.innerHTML =
+        '<div style="text-align: left;">Try again! The iron bar is unmagnetised. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="attractionWrongAnswer()"><label for="sameDirection">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="attractionRightAnswer()"> <label for= "differentDirection">The unmagnetised iron bar did not attract any steel clips.</label> </div>';
+    }
+    function moveMagnet() {
+      countdownHeading.style.opacity = "1";
+      countdown.style.opacity = "1";
+      directionDiv.style.opacity = "0";
+      directionDiv.style.backgroundColor = "transparent";
+
+      magnetBar2.onmousedown = () => {
+        magnetBar2DragValue = magnetBar2;
+        magnet2Move();
+      };
+      function magnet2Move(params) {
+        toCheckWhichMagnetMoved = false;
+        var increaseScore = true;
+        document.onmousemove = (e) => {
+          magnetBar2.style.position = "absolute";
+          var x = e.pageX;
+          var y = e.pageY;
+          p = x + "px";
+          q = y + "px";
+          var bX =
+            arrowedSteel.x > arrowedBar.x ? arrowedSteel.x : arrowedBar.x;
+          var bY =
+            arrowedSteel.y > arrowedBar.y ? arrowedSteel.y : arrowedBar.y;
           
-                    
-            arrowAnimation= document.createElement('img');
-            arrowAnimation.src ='./images/ani.png';
-            arrowAnimation.id= "arrownimation";
-            arrowAnimation.style.opacity= "0.5"
-            arrowAnimation.style.height= "90px"
-            arrowAnimation.style.width= "130px"
-
-            
-            emptySpace.appendChild(divToStoreAnimation);
-            if(barCheck===false)
-            {
-                arrowedBar.onmousedown = null;
-            emptySpace.removeChild(arrowedBar);
-            arrowedBar.style.position= "static"
-            divToStoreAnimation.appendChild(arrowAnimation)
-            divToStoreAnimation.appendChild(arrowedBar)
-            }
-            else{
-                arrowedSteel.onmousedown = null;
-            emptySpace.removeChild(arrowedSteel);
-            arrowedSteel.style.position= "static"
-            divToStoreAnimation.appendChild(arrowAnimation)
-            divToStoreAnimation.appendChild(arrowedSteel)
-            }
-            
-            clips.draggable= false; 
-            moveMagnet();
-         }
-
-            function attractionWrongAnswer(){
-            directionDiv.innerHTML='<div style="text-align: left;">Try again! The iron bar is unmagnetised. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="attractionWrongAnswer()"><label for="sameDirection">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="attractionRightAnswer()"> <label for= "differentDirection">The unmagnetised iron bar did not attract any steel clips.</label> </div>';
-            }            
-            
-            function moveMagnet() {
-                countdown.style.opacity= "1"
-                directionDiv.style.opacity= "0"
-                directionDiv.style.backgroundColor= "transparent"
-                magnetBar.style.transform= "rotate(25deg)"            
-                magnetBar2.style.transform= "rotate(25deg)"
-                
-            magnetBar2.onmousedown=()=>{
-                    magnetBar2DragValue= magnetBar2;
-                    magnet2Move();
-            }
-
-            function magnet2Move(params) {
-                toCheckWhichMagnetMoved= false;
-                document.onmousemove= (e)=>{
-                magnetBar2.style.position= "absolute";
-                    var x= e.pageX;
-                    var y= e.pageY;
-                    p= x + "px";
-                    q= y + "px";
-                    magnetBar2DragValue.style.left= p;
-                    magnetBar2DragValue.style.top= q;
-                    
-                    if(garbageValue)
-                    {
-                        if(bodywidth>1500)
-                        {
-                            if (x>500) {
-                                draggingText.innerHTML='<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material '
-                                
-                            }
-                            if(x>1000){
-                                garbageValue= false;
-
-                                
-                               let interval=  setInterval(() => {
-                                    console.log("x ke nadra");
-                                    timer+= 1;
-                                    countdown.innerHTML= timer;
-                                    console.log(countdown);
-                                    if(countdown.innerHTML==="4")
-                                    {
-                                        console.log("gggg");
-                                        magnetMoving();
-                                        clearInterval(interval);
-                                    }
-                                    
-                                }, 1700);
-                        }
-                     }
-                        else{
-                            if(x>500){
-                                garbageValue= false;
-
-                                
-                               let interval=  setInterval(() => {
-                                    console.log("x ke nadra");
-                                    timer+= 1;
-                                    countdown.innerHTML= timer;
-                                    console.log(countdown);
-                                    if(countdown.innerHTML==="4")
-                                    {
-                                        console.log("gggg");
-                                        magnetMoving();
-                                        clearInterval(interval);
-                                    }
-                                    
-                                }, 1700);
-                        }
-                        }
-                    }                
-                    }
+          console.log(
+            "x: " +
+              x +
+              "y: " +
+              y +
+              "bX: " +
+              bX +
+              "bY: " +
+              bY
+          );
+          magnetBar2DragValue.style.left = p;
+          magnetBar2DragValue.style.top = q;
+          if (garbageValue) {
+            if (bodywidth > 1500) {
+              if (x > 500) {
+                draggingText.innerHTML =
+                  "<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material ";
+              }
+              if (x >= bX && y >= bY) {
+                if (increaseScore) {
+                  increaseScore = false;
+                  timer += 1;
+                  countdown.innerHTML = timer;
+                  if (countdown.innerHTML === "10") {
+                    magnetMoving();
+                  }
                 }
-                
-            document.onmouseup= (e)=>{
-                document.onmousemove= null;
+              } else {
+                increaseScore = true;
+              }
+            } else {
+              if (x >= bX && y >= bY) {
+                if (increaseScore) {
+                  increaseScore = false;
+                  timer += 1;
+                  countdown.innerHTML = timer;
+                  if (countdown.innerHTML === "10") {
+                    magnetMoving();
+                  }
+                }
+              } else {
+                increaseScore = true;
+              }
             }
-            
-            magnetBar.onmousedown= ()=>{
-                magnetDragValue= magnetBar;
-                magnetMove();
-            }
+          }
+        };
+      }
 
-            function magnetMove() {
-                toCheckWhichMagnetMoved= true;
-                document.onmousemove= (e)=>{
-                magnetBar.style.position= "absolute";
-                    var x= e.pageX;
-                    var y= e.pageY;
-                    p= x + "px";
-                    q= y + "px";
-                    magnetDragValue.style.left= p;
-                    magnetDragValue.style.top= q;
-                    if(garbageValue){
-                        if(bodywidth>1500)
-                        {
-                            if (x>500) {
-                                draggingText.innerHTML='<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material '
-                                
-                            }
-                            if(x>1000){
-                                garbageValue= false;
+      document.onmouseup = (e) => {
+        document.onmousemove = null;
+      };
 
-                                
-                               let interval=  setInterval(() => {
-                                    console.log("x ke nadra");
-                                    timer+= 1;
-                                    countdown.innerHTML= timer;
-                                    console.log(countdown);
-                                    if(countdown.innerHTML==="4")
-                                    {
-                                        console.log("gggg");
-                                        magnetMoving();
-                                        clearInterval(interval);
-                                    }
-                                    
-                                }, 1700);
-                        }
-                     }
-                        else{
-                            if(x>500){
-                                garbageValue= false;
+      magnetBar.onmousedown = () => {
+        magnetDragValue = magnetBar;
+        magnetMove();
+      };
 
-                                
-                               let interval=  setInterval(() => {
-                                    console.log("x ke nadra");
-                                    timer+= 1;
-                                    countdown.innerHTML= timer;
-                                    console.log(countdown);
-                                    if(countdown.innerHTML==="4")
-                                    {
-                                        console.log("gggg");
-                                        magnetMoving();
-                                        clearInterval(interval);
-                                    }
-                                    
-                                }, 1700);
-                        }
-                        }
-                        
-                    }
-                    
-            }
-            document.onmouseup= (e)=>{
-                document.onmousemove= null;
-            }
-            }
-            
+      function magnetMove() {
+        toCheckWhichMagnetMoved = true;
+        var increaseScore = true;
+        document.onmousemove = (e) => {
+          magnetBar.style.position = "absolute";
+          var x = e.pageX;
+          var y = e.pageY;
+          p = x + "px";
+          q = y + "px";
+          var bX =
+            arrowedSteel.x > arrowedBar.x ? arrowedSteel.x : arrowedBar.x;
+          var bY =
+            arrowedSteel.y > arrowedBar.y ? arrowedSteel.y : arrowedBar.y;
 
+          console.log(
+            "x: " +
+              x +
+              "y: " +
+              y +
+              "bX: " +
+              bX +
+              "bY: " +
+              bY 
+          );
+          magnetDragValue.style.left = p;
+          magnetDragValue.style.top = q;
+          if (garbageValue) {
+            if (bodywidth > 1500) {
+              if (x > 500) {
+                draggingText.innerHTML =
+                  "<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material ";
+              }
+              if (x >= bX && y >= bY) {
+                if (increaseScore) {
+                  increaseScore = false;
+                  timer += 1;
+                  countdown.innerHTML = timer;
+                  if (countdown.innerHTML === "10") {
+                    magnetMoving();
+                  }
+                }
+              } else if(x<bX && y<bY){
+                increaseScore = true;
+              }
+            } else {
+              if (x >= bX && y >= bY) {
+                if (increaseScore) {
+                  increaseScore = false;
+                  timer += 1;
+                  countdown.innerHTML = timer;
+                  if (countdown.innerHTML === "10") {
+                    magnetMoving();
+                  }
+                }
+              } else {
+                increaseScore = true;
+              }
+            }
+          }
+        };
+        document.onmouseup = (e) => {
+          document.onmousemove = null;
+        };
+      }
+    }
+    function magnetMoving(params) {
+      magnetBar.onmousedown = null;
+      magnetBar2.onmousedown = null;
+      countdownHeading.style.opacity = "0";
+      countdown.style.opacity = "0";
+      directionDiv.style.opacity = "1";
+
+      if (barCheck === false) {
+        arrowedBar.src = "./images/sameDirection.png";
+      }
+      if (barCheck === true) {
+        arrowedSteel.src = "./images/steelSame.png";
+      }
+      directionDiv.style.backgroundColor = "lightblue";
+      directionDiv.style.position = "static";
+      directionDiv.style.display = "flex";
+      directionDiv.innerHTML =
+        '<div style="text-align: left;"><p>Click the correct observation.</p> </div><div style="display: flex; flex-direction: row;">  <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label></div> <br><div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
+      let divToStoreAnimation = document.querySelector(".divToStoreAnimation");
+      divToStoreAnimation.removeChild(arrowAnimation);
+    }
+
+    function magnetsInDiffDirection(params) {
+      directionDiv.innerHTML =
+        '<div style="text-align: left;"><p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
+    }
+    function magnetsInSameDirection(params) {
+      let anotherDivToStoreClip = document.createElement("div");
+      directionDiv.innerHTML =
+        "<p>Good observation! The ‘tiny magnets’ are attracted to the pole of the bar magnet. As the bar magnet moved across the magnetic material, these ‘tiny magnets’ also moved in the same direction.";
+
+      magnetBar.style.position = "static";
+      magnetBar.style.draggable = false;
+      magnetBar.style.transform = "rotate(0deg)";
+      magnetBar2.style.position = "static";
+      magnetBar2.style.draggable = false;
+      magnetBar2.style.transform = "rotate(0deg)";
+      let divToStoreAnimation = document.querySelector(".divToStoreAnimation");
+      emptySpace.removeChild(divToStoreAnimation);
+      if (barCheck === false) {
+        aBardiv = document.createElement("div");
+        aBardiv.id = "aBarDiv";
+        arrowedBar.style.position = "static";
+        aBardiv.style.justifyContent = "center";
+        aBardiv.appendChild(arrowedBar);
+        emptySpace.appendChild(aBardiv);
+      } else {
+        aBardiv = document.createElement("div");
+        aBardiv.id = "aBarDiv";
+        arrowedSteel.style.position = "static";
+        aBardiv.style.justifyContent = "center";
+        aBardiv.appendChild(arrowedSteel);
+        emptySpace.appendChild(aBardiv);
+      }
+
+      barDiv = document.querySelector(".barDiv");
+      barDiv.appendChild(magnetBar);
+
+      draggingText.innerHTML =
+        "When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.";
+      setTimeout(() => {
+        draggingText.innerHTML =
+          "Drag some steel clips into the dotted circle shown.<br>What do you observe?";
+      }, 3500);
+
+      clips.draggable = true;
+      clippedDiv = document.createElement("div");
+      clippedDiv.id = "clippedDiv";
+      anotherDivToStoreClip.id = "anotherDivToStoreClip";
+      aBardiv.style.justifyContent = "end";
+
+      clippedDiv.appendChild(anotherDivToStoreClip);
+      emptySpace.appendChild(clippedDiv);
+
+      clips.addEventListener("dragstart", (event) => {
+        clipvalue = true;
+      });
+
+      anotherDivToStoreClip.addEventListener("dragover", (event) => {
+        event.preventDefault();
+      });
+
+      anotherDivToStoreClip.addEventListener("drop", (event) => {
+        if (clipvalue) {
+          clips.style.position = "relative";
+          arrowedSteel.style.position = "static";
+          arrowedBar.style.position = "static";
+          anotherDivToStoreClip.style.alignItems = "center";
+          anotherDivToStoreClip.appendChild(clips);
+          clips.onmousedown = null;
+          clips.draggable = false;
+          ironBar.draggable = false;
+          arrowedSteel.draggable = false;
+          arrowedBar.draggable = false;
+          magnetBar.onmousedown = null;
+          setTimeout(() => {
+            anotherDivToStoreClip.style.backgroundColor = "transparent";
+            anotherDivToStoreClip.style.alignItems = "start";
+            anotherDivToStoreClip.style.borderStyle = "none";
+            clippedDiv.style.justifyContent = "start";
+            setTimeout(() => {
+              afterClipStick();
+            }, 1000);
+          }, 1000);
         }
-            function magnetMoving(params) {
-                magnetBar.onmousedown= null;
-                magnetBar2.onmousedown= null;
-                countdown.style.opacity= "0"
-                directionDiv.style.opacity= "1"
-                
-                if(barCheck===false){
-                    arrowedBar.src= "./images/sameDirection.png"
-                }
-                if(barCheck===true){
-                arrowedSteel.src= "./images/steelSame.png"
-                }
-                directionDiv.style.backgroundColor= "lightblue"
-                directionDiv.style.position= "static"
-                directionDiv.style.display= "flex"
-                directionDiv.innerHTML= '<div style="text-align: left;"><p>Click the correct observation.</p> </div><div style="display: flex; flex-direction: row;">  <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label></div> <br><div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
-                let divToStoreAnimation=  document.querySelector(".divToStoreAnimation")
-                divToStoreAnimation.removeChild(arrowAnimation)
-            }
+        clipvalue = false;
+      });
+    }
 
-            function magnetsInDiffDirection(params) {
-                directionDiv.innerHTML='<div style="text-align: left;"><p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>'
-            }
-            function magnetsInSameDirection(params) 
-            {
-                let anotherDivToStoreClip= document.createElement('div');
-                directionDiv.innerHTML='<p>Good observation! The ‘tiny magnets’ are attracted to the pole of the bar magnet. As the bar magnet moved across the magnetic material, these ‘tiny magnets’ also moved in the same direction.'
-                    
-                magnetBar.style.position= "static";
-                magnetBar.style.draggable= false;
-                magnetBar.style.transform= 'rotate(0deg)'
-                magnetBar2.style.position= "static";
-                magnetBar2.style.draggable= false;
-                magnetBar2.style.transform= 'rotate(0deg)'
-                let divToStoreAnimation=  document.querySelector(".divToStoreAnimation")
-                emptySpace.removeChild(divToStoreAnimation);
-                if(barCheck===false)
-                {
-                    aBardiv= document.createElement("div")
-                    aBardiv.id= "aBarDiv"
-                    arrowedBar.style.position= "static"
-                    aBardiv.style.justifyContent= "center"
-                    aBardiv.appendChild(arrowedBar)
-                    emptySpace.appendChild(aBardiv)
-                }
-                else{
-                    aBardiv= document.createElement("div")
-                    aBardiv.id= "aBarDiv"
-                    arrowedSteel.style.position= "static"
-                    aBardiv.style.justifyContent= "center"
-                    aBardiv.appendChild(arrowedSteel)
-                    emptySpace.appendChild(aBardiv)
-                }
-               
-             
-               barDiv= document.querySelector(".barDiv");
-                barDiv.appendChild(magnetBar)
-                
-                draggingText.innerHTML='When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.'
-                setTimeout(() => {
-                    draggingText.innerHTML='Drag and drop the steel clips <br> near the magnetised magnetic material. What will you observe?'
-                }, 3500);
+    function afterClipStick(params) {
+      directionDiv.innerHTML =
+        '<div style="text-align: left;">Click the correct observation.</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="sticked" onchange="sticked()"><label for="sticked">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="notSticked" onchange="notSticked()"> <label for= "notSticked">The magnetised iron bar did not attract any steel clips.</label> </div>';
+    }
+    function sticked(params) {
+      directionDiv.innerHTML =
+        "Well done! The magnetised iron bar is a temporary magnet so it can attract steel clips!";
+      setTimeout(() => {
+        emptySpace.removeChild(clippedDiv);
+        clipDiv.appendChild(clips);
+        aBardiv.style.justifyContent = "center";
+        aBardiv.style.alignItems = "center";
+        draggingText.innerHTML =
+          "What will be the poles of the temporary magnet?";
+        setTimeout(() => {
+          draggingText.innerHTML =
+            "<br> Drag and drop ‘N’ and ‘S’ to indicate the poles. (Hint: Think about the <br> pole of the ‘tiny magnet’ that is attracted to the  <br> pole of the bar magnet during the stroking process).";
+        }, 2500);
+        draggingText.style.backgroundColor = "lightblue";
+        directionDiv.style.opacity = "0";
+        addingPoles();
+      }, 1000);
+    }
+    function notSticked(params) {
+      directionDiv.innerHTML =
+        '<div style="text-align: left;">Try again! The iron bar is now a temporary magnet. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="sticked()"><label for="diffDirection">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="notSticked()"> <label for= "sameDirection">The magnetised iron bar did not attract any steel clips.</label> </div>';
+    }
+    function addingPoles(params) {
+      blank1 = document.createElement("div");
+      blank2 = document.createElement("div");
+      blank1.id = "blank1";
+      blank2.id = "blank2";
+      blank1.classList.add("Blank");
+      blank2.classList.add("Blank");
+      if (barCheck === false) {
+        aBardiv.removeChild(arrowedBar);
+        aBardiv.appendChild(blank1);
+        aBardiv.appendChild(arrowedBar);
+        aBardiv.appendChild(blank2);
+      } else {
+        aBardiv.removeChild(arrowedSteel);
+        aBardiv.appendChild(blank1);
+        aBardiv.appendChild(arrowedSteel);
+        aBardiv.appendChild(blank2);
+      }
+      NSdiv = document.createElement("div");
+      emptySpace.style.flexDirection = "column";
+      emptySpace.appendChild(NSdiv);
+      NSdiv.id = "NSdiv";
+      N = document.createElement("img");
+      N.src = "./images/N.png";
+      N.id = "N";
+      N.style.height = "90px";
+      N.style.width = "70px";
+      S = document.createElement("img");
+      S.src = "./images/S.png";
+      S.id = "S";
+      S.style.height = "90px";
+      S.style.width = "70px";
 
-                clips.draggable= true;               
-                clippedDiv= document.createElement('div');
-                clippedDiv.id= "clippedDiv";
-                anotherDivToStoreClip.id= "anotherDivToStoreClip"
-                aBardiv.style.justifyContent= "end"
+      NSdiv.style.marginTop = "50px";
+      NSdiv.append(N, S);
+      draggingNorS();
+    }
+    function draggingNorS() {
+      Lchoice = 0;
+      Wchoice = 0;
+      console.log(Wchoice);
+      console.log(Lchoice);
+      console.log(blank1.children);
+      console.log(blank1.children.length);
+      N.ondrag = (event) => {
+        event.preventDefault();
+        draggedN();
+      };
+      S.ondrag = (event) => {
+        event.preventDefault();
+        draggedS();
+      };
+    }
 
-                clippedDiv.appendChild(anotherDivToStoreClip)
-                emptySpace.appendChild(clippedDiv)
-                
-                clips.addEventListener('dragstart' , (event)=>{
-                    clipvalue= true;
-                })
+    function draggedN() {
+      if (toCheckWhichMagnetMoved === true) {
+        blank1.ondragover = (event) => {
+          event.preventDefault();
+        };
+        blank2.ondragover = (event) => {
+          event.preventDefault();
+        };
 
-                anotherDivToStoreClip.addEventListener('dragover', (event)=>{
-                    event.preventDefault();
-                })
+        blank1.ondrop = (event) => {
+          NSdiv.removeChild(N);
+          blank1.appendChild(N);
+          Lchoice += 1;
+          WrongChoice();
+        };
 
-                anotherDivToStoreClip.addEventListener('drop', (event)=>{
-                    if(clipvalue)
-                        {                    
-                    clips.style.position= "relative"
-                    arrowedSteel.style.position= "static"
-                    arrowedBar.style.position= "static"
-                    anotherDivToStoreClip.style.alignItems= "center"
-                    anotherDivToStoreClip.appendChild(clips)
-                    clips.onmousedown= null;
-                    clips.draggable= false;
-                    ironBar.draggable= false;
-                    arrowedSteel.draggable= false;
-                    arrowedBar.draggable= false;
-                    magnetBar.onmousedown= null;
-                    setTimeout(() => {
-                        anotherDivToStoreClip.style.backgroundColor="transparent"
-                        anotherDivToStoreClip.style.alignItems= "start"
-                        anotherDivToStoreClip.style.borderStyle="none"
-                        clippedDiv.style.justifyContent= "start"
-                        setTimeout(() => {
-                            afterClipStick();
-                        }, 1000);
-                        
-                    }, 1000);
-                }
-                clipvalue= false
-                })
+        blank2.ondrop = (event) => {
+          NSdiv.removeChild(N);
+          blank2.appendChild(N);
+          Wchoice += 1;
+          RightChoice();
+        };
+      } else {
+        blank1.ondragover = (event) => {
+          event.preventDefault();
+        };
+        blank2.ondragover = (event) => {
+          event.preventDefault();
+        };
 
-            }
-         
-            function afterClipStick(params) {
-         
-                directionDiv.innerHTML= '<div style="text-align: left;">Click the correct observation.</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="sticked" onchange="sticked()"><label for="sticked">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="notSticked" onchange="notSticked()"> <label for= "notSticked">The magnetised iron bar did not attract any steel clips.</label> </div>'
-            }
-            function sticked(params) {
-                    directionDiv.innerHTML= "Well done! The magnetised iron bar is a temporary magnet so it can attract steel clips!"
-                    setTimeout(() => {
-                        emptySpace.removeChild(clippedDiv)
-                        clipDiv.appendChild(clips)
-                        aBardiv.style.justifyContent= "center"
-                        aBardiv.style.alignItems= "center"
-                        draggingText.innerHTML='What will be the poles of the temporary magnet?'
-                        setTimeout(() => {
-                            draggingText.innerHTML='<br> Drag and drop ‘N’ and ‘S’ to indicate the poles. (Hint: Think about the <br> pole of the ‘tiny magnet’ that is attracted to the  <br> pole of the bar magnet during the stroking process).'
-                            
-                        }, 2500);
-                        draggingText.style.backgroundColor= 'lightblue'
-                        directionDiv.style.opacity= '0'
-                        addingPoles();
-                    }, 1000);
-                }
-                function notSticked(params)
-                {
-                    directionDiv.innerHTML= '<div style="text-align: left;">Try again! The iron bar is now a temporary magnet. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="sticked()"><label for="diffDirection">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="notSticked()"> <label for= "sameDirection">The magnetised iron bar did not attract any steel clips.</label> </div>'
-                }
-                function addingPoles(params) {
-                     blank1 = document.createElement('div');
-                     blank2 = document.createElement('div');
-                    blank1.id = "blank1"
-                    blank2.id = "blank2"
-                    blank1.classList.add("Blank")
-                    blank2.classList.add("Blank")
-                    if(barCheck===false){
-                        aBardiv.removeChild(arrowedBar)
-                        aBardiv.appendChild(blank1);
-                        aBardiv.appendChild(arrowedBar)
-                        aBardiv.appendChild(blank2);
-                    }
-                    else{
-                        aBardiv.removeChild(arrowedSteel)
-                        aBardiv.appendChild(blank1);
-                        aBardiv.appendChild(arrowedSteel)
-                        aBardiv.appendChild(blank2);
-                    }
-                    NSdiv= document.createElement('div')
-                    emptySpace.style.flexDirection= "column"
-                    emptySpace.appendChild(NSdiv)
-                    NSdiv.id= "NSdiv"
-                    N= document.createElement('img');
-                    N.src= "./images/N.png"
-                    N.id= "N"
-                    N.style.height= "90px";
-                    N.style.width= "70px";
-                    S= document.createElement('img');
-                    S.src= "./images/S.png"
-                    S.id= "S"
-                    S.style.height= "90px";
-                    S.style.width= "70px";
+        blank1.ondrop = (event) => {
+          NSdiv.removeChild(N);
+          blank1.appendChild(N);
+          Wchoice += 1;
+          RightChoice();
+        };
 
-                    NSdiv.style.marginTop= "50px"
-                    NSdiv.append(N,S)
-                    draggingNorS()
-            }        
-            function draggingNorS() {
-                Lchoice= 0;
-                Wchoice= 0;
-                console.log(Wchoice);
-                console.log(Lchoice);
-                console.log(blank1.children);
-                console.log(blank1.children.length);
-                N.ondrag=(event)=>{
-                    event.preventDefault();
-                    draggedN()
-                }                                     
-                S.ondrag= (event)=>{
-                    event.preventDefault();
-                    draggedS()
-                }                            
-            }
+        blank2.ondrop = (event) => {
+          console.log(blank1.children.length);
+          NSdiv.removeChild(N);
+          blank2.appendChild(N);
+          Lchoice += 1;
+          console.log(Lchoice);
+          WrongChoice();
+        };
+      }
+    }
+    function draggedS() {
+      if (toCheckWhichMagnetMoved === true) {
+        blank1.addEventListener("dragover", (event) => {
+          event.preventDefault();
+        });
+        blank2.addEventListener("dragover", (event) => {
+          event.preventDefault();
+        });
 
-            function draggedN() {
-                if (toCheckWhichMagnetMoved===true) {
-                    blank1.ondragover= (event)=>{
-                        event.preventDefault();
-                }
-                blank2.ondragover= (event)=>{
-                    event.preventDefault();
-                }    
+        blank1.ondrop = (event) => {
+          NSdiv.removeChild(S);
+          blank1.appendChild(S);
+          Wchoice += 1;
+          console.log("AWDadasdasds");
+          RightChoice();
+        };
+        blank2.ondrop = (event) => {
+          NSdiv.removeChild(S);
+          blank2.appendChild(S);
+          Lchoice += 1;
+          WrongChoice();
+        };
+      } else {
+        blank1.addEventListener("dragover", (event) => {
+          event.preventDefault();
+        });
+        blank2.addEventListener("dragover", (event) => {
+          event.preventDefault();
+        });
 
-                blank1.ondrop= (event)=>{                    
-                        NSdiv.removeChild(N)
-                        blank1.appendChild(N)
-                        Lchoice+=1;
-                        WrongChoice();               
-                    
-                }
+        blank1.ondrop = (event) => {
+          NSdiv.removeChild(S);
+          blank1.appendChild(S);
+          Lchoice += 1;
+          console.log("L choice");
+          WrongChoice();
+          console.log("magnet ne S ko blank 1 mai dala");
+        };
+        blank2.ondrop = (event) => {
+          NSdiv.removeChild(S);
+          blank2.appendChild(S);
+          Wchoice += 1;
+          RightChoice();
+          console.log("magnet ne S ko blank 2 mai dala");
+        };
+      }
+    }
+    function WrongChoice(params) {
+      console.log("entered");
+      if (Lchoice === 2) {
+        console.log("hmmm");
+        setTimeout(() => {
+          directionDiv.style.opacity = "1";
+          directionDiv.style.textAlign = "left";
+          if (toCheckWhichMagnetMoved === true) {
+            blank1.removeChild(N);
+            blank2.removeChild(S);
+          } else {
+            blank1.removeChild(S);
+            blank2.removeChild(N);
+          }
 
-                
-                blank2.ondrop= (event)=>{
-                        NSdiv.removeChild(N)
-                        blank2.appendChild(N)
-                        Wchoice+= 1; 
-                        RightChoice();                  
-                    
-                    
-                }
-              
-                }
-                                    else{
-                                        blank1.ondragover= (event)=>{
-                                            event.preventDefault();
-                                    }
-                                    blank2.ondragover= (event)=>{
-                                        event.preventDefault();
-                                    }    
-
-                                    blank1.ondrop= (event)=>{                    
-                                            NSdiv.removeChild(N)
-                                            blank1.appendChild(N)
-                                            Wchoice+=1;
-                                            RightChoice();                 
-                                    }
-
-                                    
-                                    blank2.ondrop= (event)=>{
-                                        console.log(blank1.children.length);                   
-                                            NSdiv.removeChild(N)
-                                            blank2.appendChild(N)
-                                            Lchoice+= 1; 
-                                            console.log(Lchoice);
-                                            WrongChoice();                  
-                                        
-                                        
-                                    }
-                                
-                                    }
-            } 
-            function draggedS() 
-            {
-                if (toCheckWhichMagnetMoved===true) {
-                    blank1.addEventListener('dragover', (event)=>{
-                        event.preventDefault();
-                })
-                blank2.addEventListener('dragover', (event)=>{
-                    event.preventDefault();
-                })
-
-                blank1.ondrop= (event)=>{                    
-                    NSdiv.removeChild(S)
-                    blank1.appendChild(S)
-                    Wchoice+= 1;
-                    console.log("AWDadasdasds");
-                    RightChoice();                  
-                    
-                }                
-                blank2.ondrop= (event)=>{                    
-                    NSdiv.removeChild(S)
-                    blank2.appendChild(S)
-                    Lchoice+=1;
-                    WrongChoice();                
-                }    
-                }
-                                else{
-                                    blank1.addEventListener('dragover', (event)=>{
-                                        event.preventDefault();
-                                })
-                                blank2.addEventListener('dragover', (event)=>{
-                                    event.preventDefault();
-                                })
-
-                                blank1.ondrop= (event)=>{                    
-                                    NSdiv.removeChild(S)
-                                    blank1.appendChild(S)
-                                    Lchoice+= 1;
-                                    console.log("L choice");
-                                    WrongChoice();    
-                                    console.log("magnet ne S ko blank 1 mai dala");              
-                                    
-                                }                
-                                blank2.ondrop= (event)=>{                    
-                                    NSdiv.removeChild(S)
-                                    blank2.appendChild(S)
-                                    Wchoice+=1;
-                                    RightChoice();   
-                                    console.log("magnet ne S ko blank 2 mai dala");             
-                                }
-
-                                }
-                
-            }
-            function WrongChoice(params) {
-                    console.log("entered");
-                    if(Lchoice===2){
-                        console.log("hmmm");
-                        setTimeout(() => {
-                    directionDiv.style.opacity= "1"
-                    directionDiv.style.textAlign= "left"
-                    if (toCheckWhichMagnetMoved===true) {
-                        blank1.removeChild(N)
-                        blank2.removeChild(S)    
-                    }
-                    else{
-                        blank1.removeChild(S)
-                        blank2.removeChild(N) 
-                    }
-                    
-                    NSdiv.appendChild(N)
-                    NSdiv.appendChild(S)
-                    directionDiv.innerHTML= "Try Again!! <br> A magnet has two poles, North pole and South pole. <br>Unlike poles of magnets attract each other. <br> Which pole of the ‘tiny magnets’ is attracted to the South of the bar magnet?"
-                            blank1.addEventListener('drop', (e)=>{
-                                console.log("pteet");
-                            })
-                    draggingNorS()
-                    
-                }, 1000);              
-                    }
-                }
-                function RightChoice(params) {
-                    console.log("entered");
-                    if(Wchoice===2){
-                        console.log("hmmm");
-                        setTimeout(() => {
-                    directionDiv.style.opacity= "1"
-                    directionDiv.style.textAlign= "left"
-                    draggingText.innerHTML= "What will be the poles of the temporary magnet? <br> Drag and drop ‘N’ and ‘S’ to indicate the poles.<br> (Hint: Think about the pole of the ‘tiny magnet’ that is attracted <br> to the pole of the bar magnet during the stroking process.)"
-                    directionDiv.innerHTML= "Perfect! <br> A magnet has two poles, North pole and South pole.<br>The North pole of the ‘tiny magnets’ is attracted to the South of the bar magnet because unlike poles attract.<br>Therefore, the end of the temporary magnet will become a North pole."
-                            setTimeout(() => {
-                                draggingText.innerHTML= "Try the activity again using a different rod. <br>You can also use the different end of the bar magnet to <br> stroke the magnetic material!"
-                                directionDiv.innerHTML= ""
-                                draggingText.style.backgroundColor= "lightgoldenrodyellow"
-                                directionDiv.style.opacity= "0"
-                                emptySpace.removeChild(aBardiv)
-                                let resetLink = document.createElement('a');
-                                console.log(resetLink);
-                                resetLink.href= "";
-                                let resetButton= document.createElement('button');
-                                resetButton.id= "resetButton"
-                                resetButton.innerHTML= "Repeat the process for Bar magnet 2 and Steel Rod";
-                                console.log(resetButton);
-                                resetLink.append(resetButton)
-                                NSdiv.appendChild(resetLink)
-                            }, 2000);
-                }, 1000);
-                    }
-                }
-</script>
+          NSdiv.appendChild(N);
+          NSdiv.appendChild(S);
+          directionDiv.innerHTML =
+            "Try Again!! <br> A magnet has two poles, North pole and South pole. <br>Unlike poles of magnets attract each other. <br> Which pole of the ‘tiny magnets’ is attracted to the South of the bar magnet?";
+          blank1.addEventListener("drop", (e) => {
+            console.log("pteet");
+          });
+          draggingNorS();
+        }, 1000);
+      }
+    }
+    function RightChoice(params) {
+      console.log("entered");
+      if (Wchoice === 2) {
+        console.log("hmmm");
+        setTimeout(() => {
+          directionDiv.style.opacity = "1";
+          directionDiv.style.textAlign = "left";
+          draggingText.innerHTML =
+            "What will be the poles of the temporary magnet? <br> Drag and drop ‘N’ and ‘S’ to indicate the poles.<br> (Hint: Think about the pole of the ‘tiny magnet’ that is attracted <br> to the pole of the bar magnet during the stroking process.)";
+          directionDiv.innerHTML =
+            "Perfect! <br> A magnet has two poles, North pole and South pole.<br>The North pole of the ‘tiny magnets’ is attracted to the South of the bar magnet because unlike poles attract.<br>Therefore, the end of the temporary magnet will become a North pole.";
+          setTimeout(() => {
+            draggingText.innerHTML =
+              "Try the activity again using a different rod. <br>You can also use the different end of the bar magnet to <br> stroke the magnetic material!";
+            directionDiv.innerHTML = "";
+            draggingText.style.backgroundColor = "lightgoldenrodyellow";
+            directionDiv.style.opacity = "0";
+            emptySpace.removeChild(aBardiv);
+            let resetLink = document.createElement("a");
+            console.log(resetLink);
+            resetLink.href = "";
+            let resetButton = document.createElement("button");
+            resetButton.id = "resetButton";
+            resetButton.innerHTML =
+              "Repeat the process for Bar magnet 2 and Steel Rod";
+            console.log(resetButton);
+            resetLink.append(resetButton);
+            NSdiv.appendChild(resetLink);
+          }, 2000);
+        }, 1000);
+      }
+    }
+  </script>
 </html>
