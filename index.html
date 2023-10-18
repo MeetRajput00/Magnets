@@ -212,6 +212,7 @@
       arrowAnimation,
       divToStoreClip,
       toCheckWhichMagnetMoved;
+      tochangedraggingtext= false;
     let Lchoice = 0;
     let Wchoice = 0;
     let trash = false;
@@ -261,7 +262,6 @@
           emptySpace.appendChild(ironBar);
           trash = false;
           afterDrag("1");
-          console.log("asdsadasdasdsadas");
         }
       };
     }
@@ -293,6 +293,7 @@
         emptySpace.appendChild(arrowedBar);
         barCheck = false;
         steelBar.onmousedown = null;
+        console.log(barCheck);
       }
       if (bar === "2") {
         emptySpace.removeChild(steelBar);
@@ -309,8 +310,13 @@
 
       directionDiv.innerHTML =
         "Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised.";
-      document.querySelector(".draggingText").innerHTML =
+        document.querySelector(".draggingText").innerHTML =
+        "";
+        setTimeout(() => {
+          document.querySelector(".draggingText").innerHTML =
         "Drag some steel clips into the dotted circle shown.<br>";
+        }, 3000);
+     
 
       clips.draggable = true;
       clips.addEventListener("dragstart", (event) => {
@@ -325,6 +331,7 @@
           clips.style.position = "absolute";
           clips.style.right = "40px";
           trashForClips = false;
+          directionDiv.innerHTML="";
           document.querySelector(".draggingText").innerHTML =
             "Move the magnetic material close to the steel clips.";
           moveBar();
@@ -384,6 +391,7 @@
     }
     function afterMove() {
       arrowedSteel.onmouseup = null;
+      document.querySelector(".draggingText").innerHTML ="";
       directionDiv.innerHTML =
         '<div style="text-align: left;"><p>Click the correct observation.</p></div> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="Attracted" onchange="attractionWrongAnswer()"><label for="Attracted">The unmagnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="Attraction" id="notAttracted" onchange="attractionRightAnswer()"> <label for= "notAttracted">  The unmagnetised iron bar did not attract any steel clips.</label> </div>';
     }
@@ -404,7 +412,7 @@
       divToStoreAnimation.style.flexDirection = "column";
 
       arrowAnimation = document.createElement("img");
-      arrowAnimation.src = "./images/ani.png";
+      arrowAnimation.src = "./images/animation.png";
       arrowAnimation.id = "arrownimation";
       arrowAnimation.style.opacity = "0.5";
       arrowAnimation.style.height = "90px";
@@ -441,6 +449,9 @@
 
       magnetBar2.onmousedown = () => {
         magnetBar2DragValue = magnetBar2;
+        magnetBar2.style.animationName= "rotation";
+        magnetBar2.style.animationFillMode= "forwards";
+        magnetBar2.style.animationDuration= "0.5s";
         magnet2Move();
       };
 
@@ -483,58 +494,58 @@
                   if(barCheck==true){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/3.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/4.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/5.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/6.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/7.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/8.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/9.png";
                    }
                   }
                   if(barCheck==false){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/2.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/3.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/4.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/5.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/6.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/7.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/8.png";
                    }
                   }
@@ -555,58 +566,58 @@
                   if(barCheck==true){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/3.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/4.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/5.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/6.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/7.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/8.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animagesforN/9.png";
                    }
                   }
                   if(barCheck==false){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/2.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/3.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/4.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/5.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/6.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/7.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAniforN/8.png";
                    }
                   }
@@ -629,6 +640,9 @@
 
       magnetBar.onmousedown = () => {
         magnetDragValue = magnetBar;
+        magnetBar.style.animationName= "rotation";
+        magnetBar.style.animationFillMode= "forwards";
+        magnetBar.style.animationDuration= "0.5s";
         magnetMove();
       };
 
@@ -637,7 +651,7 @@
         var increaseScore = true;
         document.onmousemove = (e) => {
           magnetBar.style.position = "absolute";
-          var x = e.pageX;
+          let x = e.pageX;
           var y = e.pageY;
           p = x + "px";
           q = y + "px";
@@ -661,70 +675,75 @@
           if (garbageValue) {
             if (bodywidth > 1500) {
               if (x > 500) {
-                draggingText.innerHTML =
+                
+                  if(tochangedraggingtext== true){
+                    draggingText.innerHTML= '';
+                  }
+                  else{
+                    draggingText.innerHTML =
                   "<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material ";
+                  }
               }
               if (x >= bX && y >= bY) {
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
                   countdown.innerHTML = timer;
-                  console.log(timer);
                   if(barCheck==true){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/3.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/4.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/5.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/6.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/7.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/8.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/9.png";
                    }
                   }
                   if(barCheck==false){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/2.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/3.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/4.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/5.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/6.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/7.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/8.png";
                    }
                   }
@@ -743,62 +762,61 @@
                   increaseScore = false;
                   timer += 1;
                   countdown.innerHTML = timer;
-                  console.log(timer);
                   if(barCheck==true){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/3.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/4.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/5.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/6.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/7.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/8.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedSteel.src= "./animages/9.png";
                    }
                   }
                   if(barCheck==false){
                     
                     if(timer==1){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/1.png";
                    }
                    else if(timer==2){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/2.png";
                    }else if(timer==3){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/3.png";
                    }else if(timer==4){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/4.png";
                    }else  if(timer==5){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/5.png";
                    }else if(timer==6){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/6.png";
                    }else if(timer==7){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/7.png";
                    }else if(timer==8){
-                    console.log("pop");
+                   
                     arrowedBar.src= "./ironAni/8.png";
                    }
                   }
@@ -825,8 +843,8 @@
       countdownHeading.style.opacity = "0";
       countdown.style.opacity = "0";
       directionDiv.style.opacity = "1";
-
       if (whichMagnet==="2") {
+
                     if(barCheck===false){
                     arrowedBar.src= "./images/ironLeftDir.png"
                     }
@@ -835,6 +853,7 @@
                     }
                 }
                 if (whichMagnet==="1") {
+
                     if(barCheck===false){
                     arrowedBar.src= "./images/sameDirection.png"
                 }
@@ -846,6 +865,7 @@
       directionDiv.style.backgroundColor = "lightblue";
       directionDiv.style.position = "static";
       directionDiv.style.display = "flex";
+      tochangedraggingtext= true;
       directionDiv.innerHTML =
         '<div style="text-align: left;"><p>Click the correct observation.</p> </div><div style="display: flex; flex-direction: row;">  <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label></div> <br><div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
       let divToStoreAnimation = document.querySelector(".divToStoreAnimation");
@@ -854,10 +874,14 @@
 
     function magnetsInDiffDirection(params) {
       directionDiv.innerHTML =
-        '<div style="text-align: left;"><p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
+        '<div style="text-align: Tleft;"><p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
     }
     function magnetsInSameDirection(params) {
       let anotherDivToStoreClip = document.createElement("div");
+      magnetBar.style.animationName= "" 
+      magnetBar2.style.animationName= "" 
+      draggingText.innerHTML='';
+
       directionDiv.innerHTML =
         "<p>Good observation! The ‘tiny magnets’ are attracted to the pole of the bar magnet. As the bar magnet moved across the magnetic material, these ‘tiny magnets’ also moved in the same direction.";
 
@@ -869,6 +893,8 @@
       magnetBar2.style.transform = "rotate(0deg)";
       let divToStoreAnimation = document.querySelector(".divToStoreAnimation");
       emptySpace.removeChild(divToStoreAnimation);
+      console.log(barCheck);
+
       if (barCheck === false) {
         aBardiv = document.createElement("div");
         aBardiv.id = "aBarDiv";
@@ -891,13 +917,16 @@
 
       barDiv = document.querySelector(".barDiv");
       barDiv.appendChild(magnetBar);
-
-      draggingText.innerHTML =
+      setTimeout(() => {
+        directionDiv.innerHTML= '';
+        draggingText.innerHTML =
         "When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.";
       setTimeout(() => {
         draggingText.innerHTML =
-          "Drag some steel clips into the dotted circle shown.<br>What do you observe?";
+          "Drag some steel clips into the dotted circle shown.";
       }, 3500);
+      }, 2500);
+      
 
       clips.draggable = true;
       clippedDiv = document.createElement("div");
@@ -944,6 +973,7 @@
     }
 
     function afterClipStick(params) {
+      draggingText.innerHTML ="What do you observe?"
       directionDiv.innerHTML =
         '<div style="text-align: left;">Click the correct observation.</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="sticked" onchange="sticked()"><label for="sticked">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="notSticked" onchange="notSticked()"> <label for= "notSticked">The magnetised iron bar did not attract any steel clips.</label> </div>';
     }
@@ -969,25 +999,41 @@
     function notSticked(params) {
       directionDiv.innerHTML =
         '<div style="text-align: left;">Try again! The iron bar is now a temporary magnet. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="sticked()"><label for="diffDirection">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="notSticked()"> <label for= "sameDirection">The magnetised iron bar did not attract any steel clips.</label> </div>';
-    }
+        console.log(barCheck);
+    
+      }
     function addingPoles(params) {
+      console.log(barCheck);
+      
       blank1 = document.createElement("div");
       blank2 = document.createElement("div");
       blank1.id = "blank1";
       blank2.id = "blank2";
       blank1.classList.add("Blank");
       blank2.classList.add("Blank");
+      console.log(barCheck);
       if (barCheck === false) {
         aBardiv.removeChild(arrowedBar);
-      arrowAnimation.src = "./images/ani.png";
-        arrowAnimation.style.opacity= 0.5;
+        if (toCheckWhichMagnetMoved) {
+          arrowAnimation.src = "./images/animation.png";
+          arrowAnimation.style.opacity= 0.5;
+        } else {
+          arrowAnimation.src = "./images/forBarN.png";
+          arrowAnimation.style.opacity= 0.5;
+        }
+         
         aBardiv.appendChild(blank1);
         aBardiv.appendChild(arrowedBar);
         aBardiv.appendChild(blank2);
       } else {
         aBardiv.removeChild(arrowedSteel);
-      arrowAnimation.src = "./images/aniwithSecondPole.png";
-        arrowAnimation.style.opacity= 0.5;
+        if (toCheckWhichMagnetMoved) {
+          arrowAnimation.src = "./images/animation.png";
+          arrowAnimation.style.opacity= 0.5;
+        } else {
+          arrowAnimation.src = "./images/forBarN.png";
+          arrowAnimation.style.opacity= 0.5;
+        }
         aBardiv.appendChild(blank1);
         aBardiv.appendChild(arrowedSteel);
         aBardiv.appendChild(blank2);
@@ -1143,8 +1189,7 @@
         setTimeout(() => {
           directionDiv.style.opacity = "1";
           directionDiv.style.textAlign = "left";
-          draggingText.innerHTML =
-            "What will be the poles of the temporary magnet? <br> Drag and drop ‘N’ and ‘S’ to indicate the poles.<br> (Hint: Think about the pole of the ‘tiny magnet’ that is attracted <br> to the pole of the bar magnet during the stroking process.)";
+          draggingText.innerHTML= '';
           directionDiv.innerHTML =
             "Perfect! <br> A magnet has two poles, North pole and South pole.<br>The North pole of the ‘tiny magnets’ is attracted to the South of the bar magnet because unlike poles attract.<br>Therefore, the end of the temporary magnet will become a North pole.";
           setTimeout(() => {

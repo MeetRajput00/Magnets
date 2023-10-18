@@ -198,12 +198,9 @@ a {
   background-color: beige;
 }
 .ironBar {
-  height: 30px;
-  width: 250px;
-  margin: 15px;
+  height: 55px;
+  width: 320px;
   background-color: gray;
-  border-style: solid;
-  border-color: black;
 }
 #arrowedBar {
   z-index: 999;
@@ -280,6 +277,26 @@ a {
     rotate: -360deg;
   }
 }
+@keyframes rotation {
+    
+  0%{
+      rotate: 0deg;
+  }
+  25%{
+      rotate: 5deg;
+  }
+  50%{
+      rotate: 10deg;
+  }
+  75%{
+      rotate: 15deg;
+  }
+  100%{
+      rotate: 25deg;
+  }
+}
+
+
 #clippedDiv {
   display: flex;
   width: 80%;
