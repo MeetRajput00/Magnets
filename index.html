@@ -468,17 +468,6 @@
             arrowedSteel.x > arrowedBar.x ? arrowedSteel.x : arrowedBar.x;
           var bY =
             arrowedSteel.y > arrowedBar.y ? arrowedSteel.y : arrowedBar.y;
-          
-          // console.log(
-          //   "x: " +
-          //     x +
-          //     "y: " +
-          //     y +
-          //     "bX: " +
-          //     bX +
-          //     "bY: " +
-          //     bY
-          // );
           magnetBar2DragValue.style.left = p;
           magnetBar2DragValue.style.top = q;
           if (garbageValue) {
@@ -487,7 +476,7 @@
                 draggingText.innerHTML =
                   "<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material ";
               }
-              if (x >= bX && y >= bY) {
+              if (x >= bX-100 && y >= bY) {
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
@@ -559,7 +548,7 @@
                 increaseScore = true;
               }
             } else {
-              if (x >= bX && y >= bY) {
+              if (x >= bX-100 && y >= bY) {
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
@@ -660,16 +649,6 @@
           var bY =
             arrowedSteel.y > arrowedBar.y ? arrowedSteel.y : arrowedBar.y;
 
-          // console.log(
-          //   "x: " +
-          //     x +
-          //     "y: " +
-          //     y +
-          //     "bX: " +
-          //     bX +
-          //     "bY: " +
-          //     bY 
-          // );
           magnetDragValue.style.left = p;
           magnetDragValue.style.top = q;
           if (garbageValue) {
@@ -684,7 +663,7 @@
                   "<br>Stroke the bar magnet in the same direction and observe the direction of the <br>‘tiny magnets’ inside the magnetic material ";
                   }
               }
-              if (x >= bX && y >= bY) {
+              if (x >= bX-100 && y >= bY) {
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
@@ -752,12 +731,12 @@
                     magnetMoving("1");
                   }
                 }
-              } else if(x<bX && y<bY){
+              } else{
                 
                 increaseScore = true;
               }
             } else {
-              if (x >= bX && y >= bY) {
+              if (x >= bX-100 && y >= bY) {
                 if (increaseScore) {
                   increaseScore = false;
                   timer += 1;
