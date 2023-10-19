@@ -231,7 +231,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 150px;
+  position: relative;
+  bottom: 28px;
 }
 #arrownimation {
   animation: GFG 4s linear infinite;
