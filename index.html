@@ -130,6 +130,11 @@
         <div class="draggingText">
           Drag and drop a magnetic material into the empty space shown.
         </div>
+        <div class="nextbuttonDiv">
+          <button id="next-Button">
+            <img src="./images/next-removebg-preview.png" alt="" style="height: 50px; width: 50px;">
+          </button>
+        </div>
         <div class="emptySpace">
           <div class="countdownHeading">Number of strokes:</div>
           <div class="countdown">0</div>
@@ -163,6 +168,12 @@
               The ‘tiny magnets’ are pointing in different directions.</label
             >
           </div>
+          
+        </div>
+        <div class="nextbuttonDivOfBlue">
+          <button id="next-Button-Blue">
+            <img src="./images/next-removebg-preview.png" alt="" style="height: 50px; width: 50px;">
+          </button>
         </div>
       </div>
     </div>
@@ -191,6 +202,8 @@
     let countdownHeading = document.querySelector(".countdownHeading");
     countdown.style.opacity = "0";
     countdownHeading.style.opacity = "0";
+    let nextButton= document.querySelector('#next-Button');
+    let nextButtonBlue= document.querySelector('#next-Button-Blue');
     let timer = 0;
     let a = false;
     let c = false;
@@ -288,6 +301,17 @@
       directionDiv.style.opacity = "1";
       draggingText.innerHTML =
         "Observe the directions of the arrows inside the unmagnetised magnetic material.<br> These arrows represent the magnetic domains or ‘tiny magnets’.";
+        directionDiv.innerHTML= "";
+      nextButton.style.opacity= "1";
+      nextButton.addEventListener("click", 
+      function textchange(params) {
+        directionDiv.innerHTML =
+        '<div style="text-align: left;">Click the correct observation.</div> <br><div style="display: flex; flex-direction: row;"><input type="radio"; name="Direction" id="sameDirection" onchange="directionWrongAnswer()"><label for="sameDirection"> The ‘tiny magnets’ are pointing in the same direction.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <br> <input type="radio" name="Direction" id="differentDirection" onchange="directionRightAnswer()"> <label for= "differentDirection">  The ‘tiny magnets’ are pointing in the different direction.</label> </div>';
+        draggingText.innerHTML= "";
+        nextButton.style.opacity= "0";
+      }
+      );
+      
       if (bar === "1") {
         emptySpace.removeChild(ironBar);
         emptySpace.appendChild(arrowedBar);
@@ -308,14 +332,18 @@
       divToStoreClip.id = "divToStoreClip";
       emptySpace.appendChild(divToStoreClip);
 
-      directionDiv.innerHTML =
-        "Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised.";
-        document.querySelector(".draggingText").innerHTML =
-        "";
-        setTimeout(() => {
-          document.querySelector(".draggingText").innerHTML =
-        "Drag some steel clips into the dotted circle shown.<br>";
-        }, 3000);
+        directionDiv.innerHTML =
+        'Good observation! When the ‘tiny magnets’ are pointing in different directions, the magnetic material is unmagnetised.</div>';
+        nextButtonBlue.style.opacity= "1";
+        nextButtonBlue.addEventListener("click", 
+        function textchange(params) {
+          directionDiv.innerHTML= "";
+          draggingText.innerHTML =
+         "Drag some steel clips into the dotted circle shown.";
+         nextButtonBlue.style.opacity= '0';
+        }
+        );
+        
      
 
       clips.draggable = true;
@@ -853,7 +881,7 @@
 
     function magnetsInDiffDirection(params) {
       directionDiv.innerHTML =
-        '<div style="text-align: Tleft;"><p>Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</p></div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
+        '<div style="text-align: Tleft;">Try again! What did you notice about the movement of the ‘tiny magnets’ as the bar magnet is brought near the magnetic material?</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="magnetsInDiffDirection()"><label for="diffDirection">The directions of the ‘tiny magnets’ remained unchanged.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="magnetsInSameDirection()"> <label for= "sameDirection"> The ‘tiny magnets’ are now pointing in the same direction.</label> </div>';
     }
     function magnetsInSameDirection(params) {
       let anotherDivToStoreClip = document.createElement("div");
@@ -863,6 +891,27 @@
 
       directionDiv.innerHTML =
         "<p>Good observation! The ‘tiny magnets’ are attracted to the pole of the bar magnet. As the bar magnet moved across the magnetic material, these ‘tiny magnets’ also moved in the same direction.";
+          nextButtonBlue.style.opacity= "1";
+        nextButtonBlue.addEventListener("click", 
+        function textchange(params) {
+          directionDiv.innerHTML= "";
+          draggingText.innerHTML =
+        "When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.";
+        nextButtonBlue.style.opacity= "0";
+        nextButton.style.opacity= "1";
+        }
+        );
+        
+        nextButton.addEventListener("click", 
+        function textchange(params) {
+          directionDiv.innerHTML= "";
+          draggingText.innerHTML =
+        "Drag some steel clips into the dotted circle shown.";
+        nextButton.style.opacity= "0";
+        }
+        );
+      
+      
 
       magnetBar.style.position = "static";
       magnetBar.style.draggable = false;
@@ -896,15 +945,7 @@
 
       barDiv = document.querySelector(".barDiv");
       barDiv.appendChild(magnetBar);
-      setTimeout(() => {
-        directionDiv.innerHTML= '';
-        draggingText.innerHTML =
-        "When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.";
-      setTimeout(() => {
-        draggingText.innerHTML =
-          "Drag some steel clips into the dotted circle shown.";
-      }, 3500);
-      }, 2500);
+     
       
 
       clips.draggable = true;
@@ -953,29 +994,64 @@
 
     function afterClipStick(params) {
       draggingText.innerHTML ="What do you observe?"
-      directionDiv.innerHTML =
+      nextButton.style.opacity= "1";
+        nextButton.addEventListener("click", 
+        function textchange(params) {
+          directionDiv.innerHTML =
         '<div style="text-align: left;">Click the correct observation.</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="sticked" onchange="sticked()"><label for="sticked">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="stickornot" id="notSticked" onchange="notSticked()"> <label for= "notSticked">The magnetised iron bar did not attract any steel clips.</label> </div>';
+        draggingText.innerHTML =""
+        nextButton.style.opacity= "0";
+        }
+        );
+      
     }
     function sticked(params) {
       directionDiv.innerHTML =
         "Well done! The magnetised iron bar is a temporary magnet so it can attract steel clips!";
-      setTimeout(() => {
-        emptySpace.removeChild(clippedDiv);
+        nextButtonBlue.style.opacity= "1";
+        nextButtonBlue.addEventListener("click", 
+        function textchange(params) {
+          directionDiv.innerHTML= "";
+          nextButton.style.opacity= "1";
+          nextButton.addEventListener("click", 
+          function textchange(params) {
+            draggingText.innerHTML =
+            "When the ‘tiny magnets’ are pointing in the same direction, the magnetic <br> material has become a temporary magnet.";
+          draggingText.innerHTML =""
+          nextButton.style.opacity= "0";
+          }
+          );
+           emptySpace.removeChild(clippedDiv);
         clipDiv.appendChild(clips);
         aBardiv.style.justifyContent = "center";
         aBardiv.style.alignItems = "center";
-        draggingText.innerHTML =
+        nextButton.style.opacity= "1";
+          nextButton.addEventListener("click", 
+          function textchange(params) {
+            draggingText.innerHTML =
           "What will be the poles of the temporary magnet?";
-        setTimeout(() => {
-          draggingText.innerHTML =
+          draggingText.innerHTML =""
+          nextButton.style.opacity= "0";
+          }
+          );
+          nextButton.addEventListener("click", 
+          function textchange(params) {
+            draggingText.innerHTML =
             "<br> Drag and drop ‘N’ and ‘S’ to indicate the poles. (Hint: Think about the <br> pole of the ‘tiny magnet’ that is attracted to the  <br> pole of the bar magnet during the stroking process).";
-        }, 2500);
+          }
+          );
         draggingText.style.backgroundColor = "lightblue";
         directionDiv.style.opacity = "0";
         addingPoles();
-      }, 1000);
+        nextButtonBlue.style.opacity= "0";
+        
+        }
+        );
+       
+    
     }
     function notSticked(params) {
+      
       directionDiv.innerHTML =
         '<div style="text-align: left;">Try again! The iron bar is now a temporary magnet. Will it attract the steel clips?</div> <br><div style="display: flex; flex-direction: row;"> <input type="radio" name="diffDirection" id="diffDirection" onchange="sticked()"><label for="diffDirection">The magnetised iron bar attracted some steel clips.</label> </div> <br> <div style="display: flex; flex-direction: row;"> <input type="radio" name="sameDirection" id="sameDirection" onchange="notSticked()"> <label for= "sameDirection">The magnetised iron bar did not attract any steel clips.</label> </div>';
         console.log(barCheck);
@@ -1153,6 +1229,7 @@
 
           NSdiv.appendChild(N);
           NSdiv.appendChild(S);
+          draggingText.innerHTML= '';
           directionDiv.innerHTML =
             "Try Again!! <br> A magnet has two poles, North pole and South pole. <br>Unlike poles of magnets attract each other. <br> Which pole of the ‘tiny magnets’ is attracted to the South of the bar magnet?";
           blank1.addEventListener("drop", (e) => {
@@ -1171,10 +1248,15 @@
           draggingText.innerHTML= '';
           directionDiv.innerHTML =
             "Perfect! <br> A magnet has two poles, North pole and South pole.<br>The North pole of the ‘tiny magnets’ is attracted to the South of the bar magnet because unlike poles attract.<br>Therefore, the end of the temporary magnet will become a North pole.";
-          setTimeout(() => {
-            draggingText.innerHTML =
+            nextButtonBlue.style.opacity= "1";
+        nextButtonBlue.addEventListener("click", 
+        function textchange(params) {
+          draggingText.innerHTML =
               "Try the activity again using a different rod. <br>You can also use the different end of the bar magnet to <br> stroke the magnetic material!";
-            directionDiv.innerHTML = "";
+          nextButtonBlue.style.opacity= "0";
+          nextButton.style.opacity= "0"
+            
+          directionDiv.innerHTML = "";
             draggingText.style.backgroundColor = "lightgoldenrodyellow";
             directionDiv.style.opacity = "0";
             emptySpace.removeChild(aBardiv);
@@ -1186,7 +1268,11 @@
               "Repeat the process with another Bar magnet";
             resetLink.append(resetButton);
             NSdiv.appendChild(resetLink);
-          }, 3000);
+          }
+          );
+          
+          
+       
         }, 1000);
       }
     }

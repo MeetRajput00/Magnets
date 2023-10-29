@@ -141,6 +141,36 @@ a {
   height: 150px;
   width: 60vw;
 }
+.nextbuttonDiv{
+  display: inline;
+  position: absolute;
+  top: 260px;
+  right: 130px;
+  border: none;
+}
+#next-Button{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  opacity: 0;
+}
+.nextbuttonDivOfBlue{
+  display: inline;
+  border: none;
+  position: absolute;
+  right: 130px;
+  bottom: 90px;
+}
+#next-Button-Blue{
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  opacity: 0;
+}
 .emptySpace {
   margin: 5px 0 2px 20px;
   height: 530px;
@@ -226,6 +256,7 @@ a {
   justify-content: center;
   height: 150px;
   width: 60vw;
+  opacity: 0;
 }
 .divToStoreAnimation {
   display: flex;
